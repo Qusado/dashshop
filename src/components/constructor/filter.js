@@ -16,10 +16,14 @@ export const Filter = ({form}) =>{
 
     const getFilters = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/filter/`, 'POST', null, {
-                Authorization : `Bearer ${token}`
-            })
-            setFilters(fetched)
+            const fetched = await $host.post(`/api/filter/`, null, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const f = res.data;
+                setFilters(f);
+            });
         } catch (e){
 
         }

@@ -4,6 +4,7 @@ import {useHttp} from "../../hooks/http.hook";
 import $ from "jquery";
 import {ViewExampleReport} from "../Component_example/ViewExampleReport";
 import {Visual_modal} from "../modal_visual/Visual_modal";
+import {$host} from "../../http";
 
 
 
@@ -14,10 +15,14 @@ export const Report = ({form}) =>{
 
     const getReports = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/report/`, 'POST', null, {
-                Authorization : `Bearer ${token}`
+            const fetched = await $host.post(`/api/report/`, null, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const r = res.data;
+                setReports(r);
             });
-            setReports(fetched)
         } catch (e){
 
         }

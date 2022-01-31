@@ -6,6 +6,7 @@ import {ViewExampleVisual} from "../Component_example/ViewExampleVisual";
 import {AuthContext} from "../../context/Auth.Context";
 import {useHttp} from "../../hooks/http.hook";
 import $ from "jquery";
+import {$host} from "../../http";
 
 export const Visual_part = ({form, setCreateMaket})=> {
 
@@ -15,10 +16,14 @@ export const Visual_part = ({form, setCreateMaket})=> {
 
     const getVisuals = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/visual/`, 'POST', null, {
-                Authorization : `Bearer ${token}`
-            })
-            setVisuals(fetched)
+            const fetched = await $host.post(`/api/visual/`, null, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const v = res.data;
+                setVisuals(v);
+            });
         } catch (e){}
     }, [token, request ])
 

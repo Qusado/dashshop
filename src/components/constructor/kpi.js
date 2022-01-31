@@ -7,6 +7,7 @@ import {ViewKpiTitle} from "../Component_title/ViewKpiTitle";
 import {ViewLayoutKpi} from "../Component_layout/ViewLayoutKpi";
 import {ViewKPIDiscript} from "../Component_description/ViewKPIDiscript";
 import {ViewExampleKPI} from "../Component_example/ViewExampleKPI";
+import {$host} from "../../http";
 
 
 
@@ -17,10 +18,14 @@ export const KPI = ({form}) =>{
 
     const getKpis = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/kpi/`, 'POST', null, {
-                Authorization : `Bearer ${token}`
-            })
-            setKpis(fetched)
+            const fetched = await $host.post(`/api/kpi/`, null, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const k = res.data;
+                setKpis(k);
+            });
         } catch (e){
 
         }

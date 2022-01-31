@@ -28,10 +28,14 @@ export const Lay = ({form, createMaket})=>{
 
     const getMenu = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/menu/${form.menu_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
+            const fetched = await $host.get(`/api/menu/${form.menu_id}`, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const m = res.data;
+                setMenu(m)
             })
-            setMenu(fetched)
         } catch (e){
 
         }
@@ -40,10 +44,14 @@ export const Lay = ({form, createMaket})=>{
 
     const getFilter = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/filter/${form.filter_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
+            const fetched = await $host.get(`/api/filter/${form.filter_id}`, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const f = res.data;
+                setFilter(f)
             })
-            setFilter(fetched)
         } catch (e){
 
         }
@@ -51,10 +59,14 @@ export const Lay = ({form, createMaket})=>{
 
     const getKpi = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/kpi/${form.kpi_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
+            const fetched = await $host.get(`/api/kpi/${form.kpi_id}`, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const k = res.data;
+                setKpi(k)
             })
-            setKpi(fetched)
         } catch (e){
 
         }
@@ -62,10 +74,14 @@ export const Lay = ({form, createMaket})=>{
 
     const getVisual = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/visual/${form.visual_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
+            const fetched = await $host.get(`/api/visual/${form.visual_id}`, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const v = res.data;
+                setVisual(v)
             })
-            setVisual(fetched)
         } catch (e){
 
         }
@@ -73,10 +89,14 @@ export const Lay = ({form, createMaket})=>{
 
     const getReport = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/report/${form.report_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
-            });
-            setReport(fetched)
+            const fetched = await $host.get(`/api/report/${form.report_id}`, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const r = res.data;
+                setReport(r)
+            })
         } catch (e){
 
         }
@@ -98,10 +118,10 @@ export const Lay = ({form, createMaket})=>{
                 headers:{
                     authorization:"Bearer "+token,
                 }
-            }).then(res=>{
-                const ch = res.data;
-                setCharts(ch)
-            });
+            }).then(res => {
+                const c = res.data;
+                setCharts(c);
+            })
         } catch (e){
 
         }

@@ -6,6 +6,7 @@ import {ViewMenuTitle} from "../Component_title/ViewMenuTitle";
 import {ViewLayoutMenu} from "../Component_layout/ViewLayoutMenu";
 import {ViewMenuDescript} from "../Component_description/ViewMenuDescript";
 import {ViewExampleMenu} from "../Component_example/ViewExampleMenu";
+import {$host} from "../../http";
 
 
 
@@ -16,10 +17,14 @@ export const Menu = ({form}) =>{
 
     const getMenus = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/menu/`, 'POST', null, {
-                Authorization : `Bearer ${token}`
-            })
-            setMenus(fetched)
+            const fetched = await $host.post(`/api/menu/`, null, {
+                headers:{
+                        authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const m = res.data;
+                setMenus(m);
+            });
         } catch (e){
 
         }
