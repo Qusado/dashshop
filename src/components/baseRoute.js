@@ -1,1 +1,1 @@
-export const baseUrl = 'http://qusado.ru';
+export const baseUrl = 'https://qusado.ru';
