@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://qusado.github.io/dashshop/",
+  "homepage": "https://qusado.github.io/dashshop",
   "dependencies": {
     "@popperjs/core": "^2.11.0",
     "@progress/kendo-data-query": "^1.5.5",
