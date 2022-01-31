@@ -6,6 +6,7 @@ import {ViewLayoutFilter} from "../Component_layout/ViewLayoutFilter";
 import {ViewFilterTitle} from "../Component_title/ViewFilterTitle";
 import {ViewFilterDiscript} from "../Component_description/ViewFilterDiscript";
 import {ViewExampleFilter} from "../Component_example/ViewExampleFilter";
+import {$host} from "../../http";
 
 
 
