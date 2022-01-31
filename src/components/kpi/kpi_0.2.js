@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import {baseUrl} from "../baseRoute";
 
 
 export const Kpi_02 = () => {
@@ -54,7 +55,7 @@ export const Kpi_02 = () => {
                 </div>
             </div>
             <div id="mask">
-                <img className="img-fluid"  src="frames/Frame 44.svg"/>
+                <img className="img-fluid"  src={baseUrl+"frames/Frame 44.svg"}/>
             </div>
 
         </div>

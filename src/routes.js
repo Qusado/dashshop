@@ -22,6 +22,7 @@ export const useRoutes = isAuthenticated =>{
                 <Route exact path="/lol" component={Lox}/>
                 <Route exact path="/constructor" component={Constructor}/>
                 <Route exact path="/one/:id_maket" component={OnemaketPage}/>
+                    <Redirect to="/"/>
             </Switch>
         )
     // }
