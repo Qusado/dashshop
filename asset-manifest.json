@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/dashshop/static/css/main.fb1498d6.chunk.css",
-    "main.js": "/dashshop/static/js/main.cb651cfd.chunk.js",
-    "main.js.map": "/dashshop/static/js/main.cb651cfd.chunk.js.map",
+    "main.js": "/dashshop/static/js/main.f4a0c124.chunk.js",
+    "main.js.map": "/dashshop/static/js/main.f4a0c124.chunk.js.map",
     "runtime-main.js": "/dashshop/static/js/runtime-main.3e2403ea.js",
     "runtime-main.js.map": "/dashshop/static/js/runtime-main.3e2403ea.js.map",
     "static/css/2.acf9cc11.chunk.css": "/dashshop/static/css/2.acf9cc11.chunk.css",
-    "static/js/2.56d958cb.chunk.js": "/dashshop/static/js/2.56d958cb.chunk.js",
-    "static/js/2.56d958cb.chunk.js.map": "/dashshop/static/js/2.56d958cb.chunk.js.map",
+    "static/js/2.19412516.chunk.js": "/dashshop/static/js/2.19412516.chunk.js",
+    "static/js/2.19412516.chunk.js.map": "/dashshop/static/js/2.19412516.chunk.js.map",
     "static/js/3.45f7f015.chunk.js": "/dashshop/static/js/3.45f7f015.chunk.js",
     "static/js/3.45f7f015.chunk.js.map": "/dashshop/static/js/3.45f7f015.chunk.js.map",
     "index.html": "/dashshop/index.html",
     "static/css/2.acf9cc11.chunk.css.map": "/dashshop/static/css/2.acf9cc11.chunk.css.map",
     "static/css/main.fb1498d6.chunk.css.map": "/dashshop/static/css/main.fb1498d6.chunk.css.map",
-    "static/js/2.56d958cb.chunk.js.LICENSE.txt": "/dashshop/static/js/2.56d958cb.chunk.js.LICENSE.txt",
+    "static/js/2.19412516.chunk.js.LICENSE.txt": "/dashshop/static/js/2.19412516.chunk.js.LICENSE.txt",
     "static/media/style.css": "/dashshop/static/media/fon2.a43342e8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.3e2403ea.js",
     "static/css/2.acf9cc11.chunk.css",
-    "static/js/2.56d958cb.chunk.js",
+    "static/js/2.19412516.chunk.js",
     "static/css/main.fb1498d6.chunk.css",
-    "static/js/main.cb651cfd.chunk.js"
+    "static/js/main.f4a0c124.chunk.js"
   ]
 }
