@@ -3,6 +3,7 @@ import React, {useCallback, useContext, useEffect, useState} from 'react'
 import {AuthContext} from "../../context/Auth.Context";
 import {useHttp} from "../../hooks/http.hook";
 import $ from "jquery";
+import {$host} from "../../http";
 
 export const ViewKPIDiscript =({current_kpi})=> {
 
@@ -13,10 +14,14 @@ export const ViewKPIDiscript =({current_kpi})=> {
 
     const getKpi = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/kpi/${by_kpi_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
-            })
-            setKpi(fetched)
+            const fetched = await $host.get(`/api/kpi/${by_kpi_id}`, null, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const k = res.data;
+                setKpi(k);
+            });
         } catch (e){
 
         }

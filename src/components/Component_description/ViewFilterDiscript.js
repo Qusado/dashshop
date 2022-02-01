@@ -2,6 +2,7 @@ import React, {useCallback, useContext, useEffect, useState} from 'react'
 import {AuthContext} from "../../context/Auth.Context";
 import {useHttp} from "../../hooks/http.hook";
 import $ from "jquery";
+import {$host} from "../../http";
 
 export const ViewFilterDiscript =({ current_filter})=> {
 
@@ -13,11 +14,14 @@ export const ViewFilterDiscript =({ current_filter})=> {
 
     const getFilter = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/filter/${by_filter_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
-            })
-            setFilter(fetched)
-
+            const fetched = await $host.get(`/api/filter/${by_filter_id}`, null, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const f = res.data;
+                setFilter(f);
+            });
         } catch (e){
 
         }
