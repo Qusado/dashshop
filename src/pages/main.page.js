@@ -6,9 +6,6 @@ export const MainPage = () =>{
     return(
         <div>
             <FirstMainBlock/>
-            {/*<ThirdMainBlock/>*/}
-
-
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import {Link} from "react-router-dom";
 
 
@@ -6,7 +6,7 @@ export const Main_Nav = () => {
     return (
     <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark mnav">
-            <Link className="navbar-brand mx-4" to="/">DASH SHOP</Link>
+            <Link className="navbar-brand mx-4" to="/">DASH-SHOP</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>

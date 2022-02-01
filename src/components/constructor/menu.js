@@ -58,16 +58,13 @@ export const Menu = ({form}) =>{
                         <div className="col-12 px-0 mb-2">
                             <div className="background_title">
                                 <ViewMenuTitle current_menu={current}/>
-
                             </div>
                         </div>
                         <div className="col-8" style={{paddingLeft:"30px", paddingRight:"0px"}}>
                             <div className="row">
                                 <div id="view_board" className="view_board mb-2 px-0 col-12">
                                     <div className="box">
-                                    {/*    <div id="" className="">*/}
                                     <ViewLayoutMenu current_menu={current}/>
-                                        {/*</div>*/}
                                     </div>
                                 </div>
                             </div>

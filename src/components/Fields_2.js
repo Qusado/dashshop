@@ -12,73 +12,10 @@ import {Visual_part} from "./constructor/visual_part";
 export const Fields_2 = () => {
 
     const {userId, token} = useContext(AuthContext)
-    const {request, loading, error, clearError} = useHttp()
-
     const [form, setForm] = useState({
         menu_id: '', filter_id: '', kpi_id: '', visual_id:'', report_id:'', g1:'', g1_title:'', g2:'', g2_title:'', g3:'', g3_title:'', g4:'', g4_title:'', g5:'', g5_title:'', g6:'', g6_title:'',
     });
     const [createMaket, setCreateMaket] = useState(false);
-
-    // function openNav2() {
-    //     if(document.getElementById("mySidenav2") && document.getElementById("mask")  )
-    //     {
-    //         document.getElementById("mySidenav2").style.height = "55%";
-    //         // document.getElementById("mask").style.backgroundColor = "rgba(0,0,0)";
-    //     }
-    // }
-    // function closeNav2() {
-    //     if(document.getElementById("mySidenav2") )
-    //     {
-    //         document.getElementById("mySidenav2").style.height = "0";
-    //     }
-    //
-    // }
-
-    // function openNav() {
-    //     if(document.getElementById("mySidenav") && document.getElementById("mask")  )
-    //     {
-    //         document.getElementById("mySidenav").style.width = "20%";
-    //         // document.getElementById("mask").style.backgroundColor = "rgba(0,0,0)";
-    //     }
-    // }
-    // function closeNav() {
-    //     if(document.getElementById("mySidenav") )
-    //     {
-    //         document.getElementById("mySidenav").style.width = "0";
-    //     }
-    //
-    // }
-
-
-
-    // const addLayouthandler = async () => {
-    //     try {
-    //          const data = await request('/api/layout/', 'POST', {...form}, {
-    //              Authorization : `Bearer ${token}`
-    //          })
-    //          await makeLayout(data);
-    //         createHoverImage();
-    //     } catch (e) {}
-    // }
-
-
-    // function openFloatFil() {
-    //     if(document.getElementById("FloatFilter") )
-    //     {
-    //         document.getElementById("FloatFilter").style.width = "30%";
-    //     }
-    // }
-    // function closeFloatFil() {
-    //     if(document.getElementById("FloatFilter") )
-    //     {
-    //         document.getElementById("FloatFilter").style.width = "0";
-    //     }
-    //
-    // }
-
-
-
-
     $(document).ready(function(){
 
         var current_fs, next_fs, previous_fs;
@@ -121,7 +58,6 @@ export const Fields_2 = () => {
             });
         });
     });
-
 
     return(
         <div className="form mx-0 w-100">

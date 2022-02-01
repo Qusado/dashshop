@@ -5,7 +5,7 @@ import {baseUrl} from "./baseRoute";
 
 export const FirstMainBlock = () => {
     return (
-        <div className="BackPic" style={{backgroundImage:`url(${baseUrl}+"/fon4.png")`}}>
+        <div className="BackPic" style={{backgroundImage:"url(fon4.png)"}}>
             <div className="container">
                 <div className="row ">
                     <div className="col-8 main_first_phrase text-left">
