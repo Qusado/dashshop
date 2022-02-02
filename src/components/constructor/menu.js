@@ -7,6 +7,7 @@ import {ViewLayoutMenu} from "../Component_layout/ViewLayoutMenu";
 import {ViewMenuDescript} from "../Component_description/ViewMenuDescript";
 import {ViewExampleMenu} from "../Component_example/ViewExampleMenu";
 import {$host} from "../../http";
+import {baseUrl} from "../baseRoute";
 
 
 
@@ -17,7 +18,7 @@ export const Menu = ({form}) =>{
 
     const getMenus = useCallback(async ()=>{
         try{
-            const fetched = await $host.post(`/api/menu/`, null, {
+            const fetched = await $host.get(`/api/menu`, null, {
                 headers:{
                         authorization:"Bearer "+token,
                 }
@@ -95,7 +96,7 @@ export const Menu = ({form}) =>{
                                                  data-title={`${menu.title}`}
                                                  onClick={Menuhandler}
                                             >
-                                                <img src={`mini/${menu.layout_img}`}
+                                                <img src={`${baseUrl}/mini/${menu.layout_img}`}
                                                      name="menu_id"
                                                      className="shadow-5-strong"
                                                      id={`${menu.id_constructor_menu}`}

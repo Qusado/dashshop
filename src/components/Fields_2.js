@@ -67,7 +67,7 @@ export const Fields_2 = () => {
                 <KPI form={form}/>
                 <Report form={form}/>
                 <Visual_part form={form} setCreateMaket={setCreateMaket}/>
-                <Lay form={form} createMaket={createMaket}/>
+                {createMaket === true && <Lay form={form} createMaket={createMaket} />}
                 <ul id="progressbar" className="fixed-bottom">
                     <li className="active" id="menu"><h6>Меню</h6></li>
                     <li id="filter"><h6>Фильтр</h6></li>
