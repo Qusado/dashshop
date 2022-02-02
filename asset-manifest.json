@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dashshop/static/css/main.fb1498d6.chunk.css",
-    "main.js": "/dashshop/static/js/main.2c1c97b7.chunk.js",
-    "main.js.map": "/dashshop/static/js/main.2c1c97b7.chunk.js.map",
+    "main.js": "/dashshop/static/js/main.c5407660.chunk.js",
+    "main.js.map": "/dashshop/static/js/main.c5407660.chunk.js.map",
     "runtime-main.js": "/dashshop/static/js/runtime-main.3e2403ea.js",
     "runtime-main.js.map": "/dashshop/static/js/runtime-main.3e2403ea.js.map",
     "static/css/2.acf9cc11.chunk.css": "/dashshop/static/css/2.acf9cc11.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.acf9cc11.chunk.css",
     "static/js/2.ad62c301.chunk.js",
     "static/css/main.fb1498d6.chunk.css",
-    "static/js/main.2c1c97b7.chunk.js"
+    "static/js/main.c5407660.chunk.js"
   ]
 }
