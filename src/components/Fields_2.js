@@ -20,8 +20,8 @@ export const Fields_2 = () => {
 
         var current_fs, next_fs, previous_fs;
         var opacity;
-        var current = 1;
-        var steps = $("fieldset").length;
+        // var current = 1;
+        // var steps = $("fieldset").length;
 
         $(".next").click(function(){
             current_fs = $(this).parent().parent().parent();
