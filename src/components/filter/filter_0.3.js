@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import {baseUrl} from "../baseRoute";
 
 export const Filter_03 = () => {
     function openFil() {
@@ -101,7 +102,7 @@ export const Filter_03 = () => {
 
             </div>
             <div className="col-11 pl-0" style={{padding:"0px"}}>
-                <img className="img-fluid" src="frames/Frame 48.svg"/>
+                <img className="img-fluid" src={baseUrl+`/frames/Frame 48.svg`}/>
             </div>
 
         </div>

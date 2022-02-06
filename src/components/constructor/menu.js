@@ -11,14 +11,15 @@ import {baseUrl} from "../baseRoute";
 
 
 
-export const Menu = ({form}) =>{
+export const Menu = ({form, setForm}) =>{
     const {token} = useContext(AuthContext)
     const {request, loading} = useHttp()
     const [menus, setMenus] = useState()
+    const [choise, setChoise] = useState(false);
 
     const getMenus = useCallback(async ()=>{
         try{
-            const fetched = await $host.get(`/api/menu`, null, {
+            const fetched = await $host.get(`/api/menu`, {
                 headers:{
                         authorization:"Bearer "+token,
                 }
@@ -39,12 +40,12 @@ export const Menu = ({form}) =>{
     $(".praon30").on("click",function() {
         $(".praon30").removeClass('current_choise');
         $(this).addClass('current_choise');
-
     })
 
     const Menuhandler = event =>{
-        setCurrent({menu_id: event.target.id, title: event.target.getAttribute("data-title")})
-        form.menu_id = event.target.id;
+        setCurrent({menu_id: event.target.id, title: event.target.getAttribute("data-title")});
+        setForm({...form, menu_id: Number(event.target.id)});
+        setChoise(true);
     }
 
     useEffect(()=>{
@@ -96,7 +97,7 @@ export const Menu = ({form}) =>{
                                                  data-title={`${menu.title}`}
                                                  onClick={Menuhandler}
                                             >
-                                                <img src={`${baseUrl}/mini/${menu.layout_img}`}
+                                                <img src={baseUrl+`/mini/${menu.layout_img}`}
                                                      name="menu_id"
                                                      className="shadow-5-strong"
                                                      id={`${menu.id_constructor_menu}`}
@@ -114,7 +115,8 @@ export const Menu = ({form}) =>{
             </div>
             <div className="button_place">
                 <div className="row col-12 justify-content-end py-2">
-                    <input type="button" name="next" className="next action-button shadow" value="К следующему шагу"/>
+                    {choise === true ? <input type="button" name="next" className="next action-button shadow" value="К следующему шагу"/> :
+                        <input type="button" name="next" id="next" className="next action-button shadow disabled" value="К следующему шагу" disabled/>}
                 </div>
             </div>
         </fieldset>

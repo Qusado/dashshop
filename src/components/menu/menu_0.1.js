@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import {baseUrl} from "../baseRoute";
 
 
 
@@ -46,7 +47,7 @@ export const Menu_01 = () => {
 
                 </div>
                 <div className="col-11 pl-0">
-                    <img className="img-fluid" src="frames/Frame.svg"/>
+                    <img className="img-fluid" src={baseUrl+"/frames/Frame.svg"}/>
                 </div>
 
             </div>

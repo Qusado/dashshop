@@ -8,19 +8,21 @@ import {ViewLayoutKpi} from "../Component_layout/ViewLayoutKpi";
 import {ViewKPIDiscript} from "../Component_description/ViewKPIDiscript";
 import {ViewExampleKPI} from "../Component_example/ViewExampleKPI";
 import {$host} from "../../http";
+import {baseUrl} from "../baseRoute";
 
 
 
-export const KPI = ({form}) =>{
+export const KPI = ({form ,setForm}) =>{
     const {token} = useContext(AuthContext)
     const {request, loading} = useHttp()
     const [kpis, setKpis] = useState()
+    const [choise, setChoise] = useState(false);
 
     const getKpis = useCallback(async ()=>{
         try{
-            const fetched = await $host.post(`/api/kpi/`, null, {
+            const fetched = await $host.get(`/api/kpi`, {
                 headers:{
-                    authorization:"Bearer "+token,
+                    authorization:"Bearer "+token
                 }
             }).then(res => {
                 const k = res.data;
@@ -45,7 +47,8 @@ export const KPI = ({form}) =>{
 
     const KPIhandler = event =>{
         setCurrentKpi({kpi_id: event.target.id, title: event.target.getAttribute("data-title")})
-        form.kpi_id = event.target.id;
+        setForm({...form, kpi_id: Number(event.target.id)});
+        setChoise(true);
     }
 
     useEffect(()=>{
@@ -103,7 +106,7 @@ export const KPI = ({form}) =>{
                                                  data-title={`${kpi.title}`}
                                                  onClick={KPIhandler}
                                             >
-                                                <img src={`mini/${kpi.layout_img}`}
+                                                <img src={baseUrl+`/mini/${kpi.layout_img}`}
                                                      name="kpi_id"
                                                      className="shadow-5-strong"
                                                      id={`${kpi.id_constructor_kpi}`}
@@ -122,7 +125,8 @@ export const KPI = ({form}) =>{
             <div className="button_place">
                 <div className="row col-12 justify-content-end py-2">
                     <input type="button" name="previous" className="previous action-button shadow" value="Вернуться"/>
-                    <input type="button" name="next" className="next action-button shadow" value="К следующему шагу"/>
+                    {choise === true ? <input type="button" name="next" className="next action-button shadow" value="К следующему шагу"/> :
+                        <input type="button" name="next" id="next" className="next action-button shadow disabled" value="К следующему шагу" disabled/>}
                 </div>
             </div>
         </fieldset>

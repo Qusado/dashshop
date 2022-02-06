@@ -7,17 +7,19 @@ import {ViewFilterTitle} from "../Component_title/ViewFilterTitle";
 import {ViewFilterDiscript} from "../Component_description/ViewFilterDiscript";
 import {ViewExampleFilter} from "../Component_example/ViewExampleFilter";
 import {$host} from "../../http";
+import {baseUrl} from "../baseRoute";
 
 
 
-export const Filter = ({form}) =>{
+export const Filter = ({form, setForm}) =>{
     const {token} = useContext(AuthContext)
     const {request, loading} = useHttp()
     const [filters, setFilters] = useState()
+    const [choise, seChoise] = useState(false)
 
     const getFilters = useCallback(async ()=>{
         try{
-            const fetched = await $host.post(`/api/filter/`, null, {
+            const fetched = await $host.get(`/api/filter`, {
                 headers:{
                     authorization:"Bearer "+token,
                 }
@@ -43,8 +45,8 @@ export const Filter = ({form}) =>{
 
     const Filterhandler = event =>{
         setCurrentFilter({filter_id: event.target.id, title: event.target.getAttribute("data-title")})
-        form.filter_id = event.target.id;
-        console.log(form)
+        setForm({...form, filter_id: Number(event.target.id)});
+       seChoise(true);
     }
 
     useEffect(()=>{
@@ -101,7 +103,7 @@ export const Filter = ({form}) =>{
                                                  data-title={`${filter.title}`}
                                                  onClick={Filterhandler}
                                             >
-                                                <img src={`mini/${filter.layout_img}`}
+                                                <img src={baseUrl+`/mini/${filter.layout_img}`}
                                                      name="filter_id"
                                                      className="shadow-5-strong"
                                                      id={`${filter.id_constructor_filter}`}
@@ -120,7 +122,8 @@ export const Filter = ({form}) =>{
             <div className="button_place">
                 <div className="row col-12 justify-content-end py-2">
                     <input type="button" name="previous" className="previous action-button shadow" value="Вернуться"/>
-                    <input type="button" name="next" className="next action-button shadow" value="К следующему шагу"/>
+                    {choise === true ? <input type="button" name="next" className="next action-button shadow" value="К следующему шагу"/> :
+                        <input type="button" name="next" id="next" className="next action-button shadow disabled" value="К следующему шагу" disabled/>}
                 </div>
             </div>
         </fieldset>

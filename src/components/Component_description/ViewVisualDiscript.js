@@ -2,6 +2,7 @@ import React, {useCallback, useContext, useEffect, useState} from 'react'
 import {AuthContext} from "../../context/Auth.Context";
 import {useHttp} from "../../hooks/http.hook";
 import $ from "jquery";
+import {$host} from "../../http";
 
 export const ViewVisualDiscript =({current_visual})=> {
 
@@ -13,10 +14,15 @@ export const ViewVisualDiscript =({current_visual})=> {
 
     const getVisual = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/visual/${by_visual_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
+            const fetched = await $host.get(`/api/visual/${by_visual_id}`, {
+                headers:{
+                    authorization:"Bearer "+token
+                }
+            }).then(res => {
+                const v = res.data;
+                setVisual(v);
             })
-            setVisual(fetched)
+
 
         } catch (e){
 

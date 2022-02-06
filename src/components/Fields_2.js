@@ -1,7 +1,6 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react'
 import $ from "jquery";
 import {AuthContext} from "../context/Auth.Context";
-import {useHttp} from "../hooks/http.hook";
 import {Menu} from "./constructor/menu";
 import {Filter} from "./constructor/filter";
 import {KPI} from "./constructor/kpi";
@@ -13,16 +12,29 @@ export const Fields_2 = () => {
 
     const {userId, token} = useContext(AuthContext)
     const [form, setForm] = useState({
-        menu_id: '', filter_id: '', kpi_id: '', visual_id:'', report_id:'', g1:'', g1_title:'', g2:'', g2_title:'', g3:'', g3_title:'', g4:'', g4_title:'', g5:'', g5_title:'', g6:'', g6_title:'',
+        menu_id: 0,
+        filter_id: 0,
+        kpi_id: 0,
+        visual_id: 0,
+        report_id: 0,
+        g1: 0,
+        g1_title: '',
+        g2: 0,
+        g2_title: '',
+        g3: 0,
+        g3_title: '',
+        g4: 0,
+        g4_title: '',
+        g5: 0,
+        g5_title: '',
+        g6: 0,
+        g6_title: '',
     });
     const [createMaket, setCreateMaket] = useState(false);
+    const [updateMaket, setUpdateMaket] = useState(false);
     $(document).ready(function(){
-
         var current_fs, next_fs, previous_fs;
         var opacity;
-        // var current = 1;
-        // var steps = $("fieldset").length;
-
         $(".next").click(function(){
             current_fs = $(this).parent().parent().parent();
             next_fs = $(this).parent().parent().parent().next();
@@ -62,12 +74,12 @@ export const Fields_2 = () => {
     return(
         <div className="form mx-0 w-100">
             <form id="msform">
-                <Menu form={form}/>
-                <Filter form={form}/>
-                <KPI form={form}/>
-                <Report form={form}/>
-                <Visual_part form={form} setCreateMaket={setCreateMaket}/>
-                {createMaket === true && <Lay form={form} createMaket={createMaket} />}
+                <Menu form={form} setForm={setForm}/>
+                <Filter form={form} setForm={setForm} />
+                <KPI form={form} setForm={setForm}/>
+                <Report form={form} setForm={setForm}/>
+                <Visual_part form={form} setForm={setForm} setCreateMaket={setCreateMaket}/>
+                <Lay form={form} setForm={setForm} createMaket={createMaket}/>
                 <ul id="progressbar" className="fixed-bottom">
                     <li className="active" id="menu"><h6>Меню</h6></li>
                     <li id="filter"><h6>Фильтр</h6></li>

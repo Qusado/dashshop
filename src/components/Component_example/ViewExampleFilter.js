@@ -2,6 +2,8 @@ import React, {useCallback, useContext, useEffect, useState} from 'react'
 import {AuthContext} from "../../context/Auth.Context";
 import {useHttp} from "../../hooks/http.hook";
 import {Exp_modal} from "../modal_examp/exp_modal";
+import {$host} from "../../http";
+import {baseUrl} from "../baseRoute";
 
 export const ViewExampleFilter =({current_filter, exp_active, setExp_active})=> {
 
@@ -16,11 +18,14 @@ export const ViewExampleFilter =({current_filter, exp_active, setExp_active})=> 
 
     const getExamples = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/examplef/by_filter/${by_filter_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
-            })
-            setExamples(fetched)
-
+            const fetched = await $host.get(`/api/examplef/by_filter/${by_filter_id}`, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res=>{
+                const f = res.data;
+                setExamples(f);
+            });
         } catch (e){
 
         }
@@ -45,15 +50,17 @@ export const ViewExampleFilter =({current_filter, exp_active, setExp_active})=> 
                         { !loading && examples && examples.map((example, index) => {
                             return(
                                 <div className="col-md-3 mb-4" style={{paddingRight:'0px'}}>
-                                    <div className="card shadow-0" onClick={expHandler}
-                                         data-img={`${example.path}`}
-                                         data-title={`${example.title}`}
-                                         data-description={`${example.description}`}
-                                         data-url = {`${example.url}`}
-                                         style={{height: '10vh',
-                                             backgroundSize: '100% auto',
-                                             backgroundImage: `url('exp/${example.path}')`}}
-                                    />
+                                    <div className="card shadow-0"
+                                         style={{height: '10vh', overflow: 'hidden' , backgroundSize: '100% auto'}}>
+                                        <img src={baseUrl+`/exp/${example.path}`}
+                                             onClick={expHandler}
+                                             data-img={`${example.path}`}
+                                             data-title={`${example.title}`}
+                                             data-description={`${example.description}`}
+                                             data-url = {`${example.url}`}
+                                             style={{objectFit: 'cover'}}
+                                        />
+                                    </div>
                                 </div>
                             );})}
 

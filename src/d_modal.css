@@ -123,7 +123,7 @@ body {
     color: #0AD275;
 }
 .droppable{
-    background: url('../images/dd3.png') no-repeat;
+    background: url('images/dd3.png') no-repeat;
     background-size: contain;
     background-position: center;
 }

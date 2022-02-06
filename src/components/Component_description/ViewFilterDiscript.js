@@ -14,7 +14,7 @@ export const ViewFilterDiscript =({ current_filter})=> {
 
     const getFilter = useCallback(async ()=>{
         try{
-            const fetched = await $host.get(`/api/filter/${by_filter_id}`, null, {
+            const fetched = await $host.get(`api/filter/${by_filter_id}`, {
                 headers:{
                     authorization:"Bearer "+token,
                 }

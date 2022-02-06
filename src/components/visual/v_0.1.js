@@ -1,9 +1,10 @@
 import React, {useContext} from 'react'
 import $ from "jquery";
+import {baseUrl} from "../baseRoute";
 
 export const Visual_01 = () => {
-    var v1 = "frames/Frame 50.svg";
-    var v2 = "frames/Frame 51.svg";
+    var v1 = baseUrl+'/frames/Frame 50.svg';
+    var v2 = baseUrl+'/frames/Frame 51.svg';
     $(document).ready(function (){
         $('#charts').click(function (){
             document.getElementById("img_var").src=v1;

@@ -2,6 +2,7 @@ import React, {useCallback, useContext, useEffect, useState} from 'react'
 import {AuthContext} from "../../context/Auth.Context";
 import {useHttp} from "../../hooks/http.hook";
 import $ from "jquery";
+import {$host} from "../../http";
 
 export const ViewMenuDescript =({current_menu})=> {
     const by_menu_id = current_menu.menu_id;
@@ -11,10 +12,14 @@ export const ViewMenuDescript =({current_menu})=> {
 
     const getMenu = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/menu/${by_menu_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
-            })
-            setMenu(fetched);
+            const fetched = await $host.get(`api/menu/${by_menu_id}`, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const m = res.data;
+                setMenu(m);
+            });
         } catch (e){
 
         }

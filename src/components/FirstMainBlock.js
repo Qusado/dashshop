@@ -5,11 +5,20 @@ import {baseUrl} from "./baseRoute";
 
 export const FirstMainBlock = () => {
     return (
-        <div className="BackPic" style={{backgroundImages:`url(${baseUrl}+/fon4.png)`}}>
-            <div className="container">
-                <div className="row ">
+
+        <div className="">
+            <img className="BackPic" src={baseUrl+"/fon4.png"}/>
+            <div className="container" style={{
+                zIndex:'3',
+                position:"absolute",
+                top: "7vh",
+                left: "5vw",
+                width: '100%'
+
+            }}>
+                <div className="row">
                     <div className="col-8 main_first_phrase text-left">
-                        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+                        <h1 className="px-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
                     </div>
                 </div>
                 <div className="row">
@@ -18,13 +27,14 @@ export const FirstMainBlock = () => {
                         <h3>Eget arcu dictum varius duis at consectetur lorem donec massa.</h3>
                     </div>
                 </div>
+                <div className="d-flex justify-content-center">
+                    <Link to="/constructor">
+                        <button type="button" className="btn btn-lg my-5 btn-primary bigbut">
+                            Создать свой дашборд
+                        </button>
+                    </Link>
+                </div>
             </div>
-            <div className="d-flex justify-content-center">
-                <Link to="/constructor">
-                    <button type="button" className="btn btn-lg my-5 btn-primary bigbut">
-                        Создать свой дашборд
-                    </button>
-                </Link>
-            </div>
+
         </div>
     )}

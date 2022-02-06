@@ -3,7 +3,7 @@ import {useRoutes} from "./routes";
 import { BrowserRouter as Router} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
-import './css/style.css'
+import './style.css'
 import {useAuth} from "./hooks/auth.hook";
 import {AuthContext} from "./context/Auth.Context";
 import {Main_Nav} from "./components/Main_Nav";

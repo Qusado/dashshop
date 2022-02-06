@@ -8,14 +8,15 @@ import {$host} from "../../http";
 
 
 
-export const Report = ({form}) =>{
+export const Report = ({form, setForm}) =>{
     const {token} = useContext(AuthContext)
     const {request, loading} = useHttp()
     const [reports, setReports] = useState()
+    const [choise, setChoise] = useState(false);
 
     const getReports = useCallback(async ()=>{
         try{
-            const fetched = await $host.post(`/api/report/`, null, {
+            const fetched = await $host.get(`/api/report`,  {
                 headers:{
                     authorization:"Bearer "+token,
                 }
@@ -37,12 +38,12 @@ export const Report = ({form}) =>{
     $(".praon30").on("click",function() {
         $(".praon30").removeClass('current_choise');
         $(this).addClass('current_choise');
-
     })
 
     const Reporthandler = event => {
         setCurrentReport({report_id: event.target.id, title: event.target.getAttribute("data-title")})
-        form.report_id = event.target.id;
+        setForm({...form, report_id: Number(event.target.id)});
+        setChoise(true);
     }
 
     $(function(){
@@ -95,15 +96,15 @@ export const Report = ({form}) =>{
                             <h5 className="examples_title">Примеры</h5>
                             <ViewExampleReport current_report={current_report} exp_active={modalViewExpActive} setExp_active={setModalViewExpActive}/>
                         </div>
-                        <Visual_modal form={form} current_report={current_report} setVisual_active={setModalViewVisualActive} visual_active={modalViewVisualActive}/>
+                        <Visual_modal form={form} setForm={setForm} current_report={current_report} setVisual_active={setModalViewVisualActive} visual_active={modalViewVisualActive}/>
                     </div>
                 </div>
             </div>
             <div className="button_place">
                 <div className="row col-12 justify-content-end py-2">
                     <input type="button" name="previous" className="previous action-button shadow" value="Вернуться"/>
-                    <input type="button" name="next" className="next action-button shadow" value="К следующему шагу"/>
-
+                    {choise === true ? <input type="button" name="next" className="next action-button shadow" value="К следующему шагу"/> :
+                        <input type="button" name="next" id="next" className="next action-button shadow disabled" value="К следующему шагу" disabled/>}
                 </div>
             </div>
         </fieldset>

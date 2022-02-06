@@ -3,9 +3,10 @@ import "./visual_modal.css";
 import {Dd_modal} from "../dd_modal";
 import {useHttp} from "../../hooks/http.hook";
 import {AuthContext} from "../../context/Auth.Context";
+import {$host} from "../../http";
 
 
-export const Visual_modal = ({form, visual_active, setVisual_active, current_report}) => {
+export const Visual_modal = ({form, setForm, visual_active, setVisual_active, current_report}) => {
 
     const report_id = current_report.report_id;
     const {token} = useContext(AuthContext);
@@ -14,10 +15,14 @@ export const Visual_modal = ({form, visual_active, setVisual_active, current_rep
 
     const getGraphs = useCallback(async ()=>{
         try{
-            const fetched = await request(`/api/chart/by_report_format/${report_id}`, 'GET', null, {
-                Authorization : `Bearer ${token}`
+            const fetched = await $host.get(`/api/chart/by_report_format/${report_id}`, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res => {
+                const g = res.data;
+                setGraphs(g);
             })
-            setGraphs(fetched);
         }
         catch (e){
 
@@ -35,7 +40,7 @@ export const Visual_modal = ({form, visual_active, setVisual_active, current_rep
 
             <div className={visual_active? "modal_v__content active" : "modal_v__content"} onClick={e=>e.stopPropagation()}>
                 <a href="#" className="close_modal" onClick={()=> {setVisual_active(false)}}>&times;</a>
-                <Dd_modal form={form} graphs={graphs} visual_active={visual_active} setVisual_active={setVisual_active}/>
+                <Dd_modal form={form} setForm={setForm} graphs={graphs} visual_active={visual_active} setVisual_active={setVisual_active}/>
             </div>
 
         </div>

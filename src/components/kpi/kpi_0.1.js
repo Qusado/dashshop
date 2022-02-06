@@ -60,7 +60,7 @@ export const Kpi_01 = () => {
                 </div>
             </div>
             <div id="mask">
-                <img className="img-fluid" src={baseUrl+"frames/Frame 43.svg"}/>
+                <img className="img-fluid" src={baseUrl+"/frames/Frame 43.svg"}/>
             </div>
 
         </div>

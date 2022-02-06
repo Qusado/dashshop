@@ -1,14 +1,9 @@
 import React, {useContext, useState} from 'react'
-import '../css/d_modal.css'
+import '../d_modal.css'
+import {baseUrl} from "./baseRoute";
 
 
-
-export const Dd_modal = ({form, graphs, visual_active, setVisual_active}) => {
-
-
-    const ClearHandler = (event)=>{
-
-    }
+export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active}) => {
 
     const [boards, setBoards] = useState([
         {id:1, items:'', title:""},
@@ -45,16 +40,27 @@ export const Dd_modal = ({form, graphs, visual_active, setVisual_active}) => {
             event.target.classList.remove("droppable-hover");
             const draggableElementId = event.dataTransfer.getData("id");
             const draggableElementData = event.dataTransfer.getData("images")
-            event.target.insertAdjacentHTML("afterbegin", `<img class="insertGraph dropped" draggable="false" id="${draggableElementId}" src="graph/${draggableElementData}"/><button type="button" onClick={ClearHandler} class="remove_graph">очистить</button>`);
+            event.target.insertAdjacentHTML("afterbegin",
+                `<img class="insertGraph dropped" draggable="false" id="${draggableElementId}" src="graph/${draggableElementData}"/>
+                      <button type="button" id="${draggableElementId}" class="remove_graph">
+                                      очистить
+                      </button>`);
+            event.target.children[1].addEventListener('click', ClearHandler)
             event.target.classList.add("dropped");
             const curId = event.target.id;
             boards[curId - 1].items = event.target.firstChild.id;
-            console.log(event.target.firstChild)
         }
     }
     function dragEnd(event){
     }
 
+    function ClearHandler(event) {
+        const paren = event.target.parentNode;
+        while (paren.firstChild) {
+            paren.removeChild(paren.firstChild);
+        }
+        paren.classList.remove("dropped");
+    }
 
 
     function clearAfterSave(){
@@ -67,22 +73,43 @@ export const Dd_modal = ({form, graphs, visual_active, setVisual_active}) => {
         });
     }
 
-    const SaveHandler = (event)=>
+    const SaveHandler = event =>
     {
-        console.log(boards);
-        form.g1 = boards[0].items;
-        form.g1_title = document.getElementById("input1").value;
-        form.g2 = boards[1].items;
-        form.g2_title = document.getElementById("input2").value;
-        form.g3 = boards[2].items;
-        form.g3_title = document.getElementById("input3").value;
-        form.g4 = boards[3].items;
-        form.g4_title = document.getElementById("input4").value;
-        form.g5 = boards[4].items;
-        form.g5_title = document.getElementById("input5").value;
-        form.g6 = boards[5].items;
-        form.g6_title = document.getElementById("input6").value;
+        // console.log("save");
+        // console.log(boards);
+        // console.log(form);
+        // setForm({...form, g1: Number(boards[0].items)});
+        // setForm({...form, g1_title: document.getElementById("input1").value});
+        // setForm({...form, g2: Number(boards[1].items)});
+        // setForm({...form, g2_title: document.getElementById("input2").value});
+        // setForm({...form, g3: Number(boards[2].items)});
+        // setForm({...form, g3_title: document.getElementById("input3").value});
+        // setForm({...form, g4: Number(boards[3].items)});
+        // setForm({...form, g4_title: document.getElementById("input4").value});
+        // setForm({...form, g5: Number(boards[4].items)});
+        // setForm({...form, g5_title: document.getElementById("input5").value});
+        //
+        // setForm({...form, g6_title: document.getElementById("input6").value});
+        // setForm(
+        //     {...form, g5: Number(boards[4].items)}, {...form, g6: Number(boards[5].items)}
+        // );
+        //
+        // this.setState(({ count }) => ({ count: count + 1 }));
 
+        form.g1 = Number(boards[0].items);
+        form.g1_title = document.getElementById("input1").value;
+        form.g2 = Number(boards[1].items);
+        form.g2_title = document.getElementById("input2").value;
+        form.g3 = Number(boards[2].items);
+        form.g3_title = document.getElementById("input3").value;
+        form.g4 = Number(boards[3].items);
+        form.g4_title = document.getElementById("input4").value;
+        form.g5 = Number(boards[4].items);
+        form.g5_title = document.getElementById("input5").value;
+        form.g6 = Number(boards[5].items);
+        form.g6_title = document.getElementById("input6").value;
+        // console.log("лох");
+        // console.log(form);
         setVisual_active(false);
         clearAfterSave();
     }
@@ -90,10 +117,11 @@ export const Dd_modal = ({form, graphs, visual_active, setVisual_active}) => {
 
     clearAfterSave();
 
+
     return(
         <div className="row mx-3 my-2">
             <h3 className="mb-2">Выбор графиков для визуализации данных</h3>
-            <div className="col-9 fon_maket" style={{height:"500px", backgroundImage:"url(graph_fon.png)"}}>
+            <div className="col-9 fon_maket" style={{height:"500px", backgroundImage:'url(graph_fon.png)'}}>
                 <div className="row justify-content-end h-100">
                     <div className="col-10 px-0">
                         <div className="row h-100 align-items-end px-3">
@@ -105,7 +133,7 @@ export const Dd_modal = ({form, graphs, visual_active, setVisual_active}) => {
                                      onDragEnter={(e)=> dragEnter(e)}
                                      onDragLeave={(e) => dragLeave(e)}
                                      onDrop={(e)=> drop(e)}
-                                   >
+                                    >
                                     </div>
                                 </div>
                                 <div className="col-4 mb-2" id="2" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>
@@ -172,7 +200,7 @@ export const Dd_modal = ({form, graphs, visual_active, setVisual_active}) => {
                                      draggable="true"
                                      id={`${graph.constructor_chart}`}
                                      data-images={`${graph.layout_img}`}
-                                     src={`graph/${graph.layout_img_variant}`}
+                                     src={baseUrl+`/graph/${graph.layout_img_variant}`}
                                      onDragStart={(e)=> dragStart(e)}/>
                             </div>
                         )}

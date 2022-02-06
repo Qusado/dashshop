@@ -7,16 +7,18 @@ import {AuthContext} from "../../context/Auth.Context";
 import {useHttp} from "../../hooks/http.hook";
 import $ from "jquery";
 import {$host} from "../../http";
+import {baseUrl} from "../baseRoute";
 
-export const Visual_part = ({form, setCreateMaket})=> {
+export const Visual_part = ({form,setForm, setCreateMaket})=> {
 
     const {token} = useContext(AuthContext)
     const {request, loading} = useHttp()
     const [visuals, setVisuals] = useState()
+    const [choise, setchoise] = useState(false)
 
     const getVisuals = useCallback(async ()=>{
         try{
-            const fetched = await $host.post(`/api/visual/`, null, {
+            const fetched = await $host.get(`/api/visual`, {
                 headers:{
                     authorization:"Bearer "+token,
                 }
@@ -40,7 +42,8 @@ export const Visual_part = ({form, setCreateMaket})=> {
 
     const Visualhandler = event =>{
         setCurrentVisual({visual_id: event.target.id, title: event.target.getAttribute("data-title")})
-        form.visual_id = event.target.id;
+        setForm({...form, visual_id: Number(event.target.id)});
+        setchoise(true);
     };
 
     const addLayouthandler = async () => {
@@ -57,6 +60,8 @@ export const Visual_part = ({form, setCreateMaket})=> {
     useEffect(()=>{
         getVisuals()
     }, [getVisuals])
+
+    console.log("vv", form)
 
     return(
         <fieldset>
@@ -107,7 +112,7 @@ export const Visual_part = ({form, setCreateMaket})=> {
                                                  data-title={`${visual.title}`}
                                                  onClick={Visualhandler}
                                             >
-                                                <img src={`mini/${visual.layout_img}`}
+                                                <img src={baseUrl+`/mini/${visual.layout_img}`}
                                                      name="visual_id"
                                                      className="shadow-5-strong"
                                                      id={`${visual.id_constructor_visual}`}
@@ -126,9 +131,15 @@ export const Visual_part = ({form, setCreateMaket})=> {
             <div className="button_place">
                 <div className="row col-12 justify-content-end py-2">
                     <input type="button" name="previous" className="previous action-button shadow" value="Вернуться"/>
-                    <button type="button" name="next" className="next action-button shadow" onClick={addLayouthandler}>
-                        <i className="fas fa-check-square"></i> собрать макет</button>
-
+                    {choise === true ?
+                        <button type="button" name="next" className="next action-button shadow" onClick={addLayouthandler}>
+                            <i className="fas fa-check-square"></i> собрать макет
+                        </button>
+                        :
+                        <button type="button" name="next" id="next" className="next action-button shadow disabled" disabled>
+                            <i className="fas fa-check-square"></i> собрать макет
+                        </button>
+                    }
                 </div>
             </div>
         </fieldset>

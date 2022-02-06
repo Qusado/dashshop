@@ -55,8 +55,6 @@ body{
 
 .BackPic {
     z-index: 0;
-    background: no-repeat;
-    background-size: 100% auto;
     height: 93vh;
 }
 
@@ -78,7 +76,7 @@ body{
 }
 
 .three {
-    background: no-repeat right/50% url("../images/fon2.png");
+    background: no-repeat right/50% url("images/fon2.png");
     height: 40vh;
     background-color: whitesmoke;
 }
@@ -352,7 +350,7 @@ body{
 }
 
 #closeFil{
-    background: center/contain no-repeat url("../images/icons/Line 2.svg");
+    background: center/contain no-repeat url("images/icons/Line 2.svg");
     text-decoration: none;
     color: white;
     padding-top: 15%;
@@ -373,7 +371,7 @@ padding-top: 10%;
 }
 
 .logoLine{
-    background: center/contain no-repeat url("../images/icons/Line 2.svg");
+    background: center/contain no-repeat url("images/icons/Line 2.svg");
 }
 
 
@@ -404,7 +402,7 @@ padding-top: 10%;
     text-decoration: none;
     color: white;
     padding-top: 15%;
-    background: center/contain no-repeat url("../images/icons/Line 2.svg");
+    background: center/contain no-repeat url("images/icons/Line 2.svg");
     width: 6px!important;
 }
 
@@ -777,52 +775,52 @@ label {
 
 
 .hovervariant:hover .logo1 {
-    background: center/contain no-repeat url("../images/icons/Layout_l.svg");
+    background: center/contain no-repeat url("images/icons/Layout_l.svg");
 }
 
 .logo1 {
-    background: center/contain no-repeat url("../images/icons/Layout.svg");
+    background: center/contain no-repeat url("images/icons/Layout.svg");
 }
 
 .hovervariant:hover .logo2 {
-    background: center/contain no-repeat url("../images/icons/Chip_l.svg");
+    background: center/contain no-repeat url("images/icons/Chip_l.svg");
 }
 
 .logo2 {
-    background: center/contain no-repeat url("../images/icons/Chip.svg");
+    background: center/contain no-repeat url("images/icons/Chip.svg");
 }
 
 .hovervariant:hover .logo3 {
-    background: center/contain no-repeat url("../images/icons/Cart_l.svg");
+    background: center/contain no-repeat url("images/icons/Cart_l.svg");
 }
 
 .logo3 {
-    background: center/contain no-repeat url("../images/icons/Cart.svg");
+    background: center/contain no-repeat url("images/icons/Cart.svg");
 }
 
 .hovervariant:hover .logo4 {
-    background: center/contain no-repeat url("../images/icons/Map_l.svg");
+    background: center/contain no-repeat url("images/icons/Map_l.svg");
 }
 
 .logo4 {
     background-color: black;
-    background: center/contain no-repeat url("../images/icons/Map.svg");
+    background: center/contain no-repeat url("images/icons/Map.svg");
 }
 
 .hovervariant:hover .logo5 {
-    background: center/contain no-repeat url("../images/icons/Bag_l.svg");
+    background: center/contain no-repeat url("images/icons/Bag_l.svg");
 }
 
 .logo5 {
-    background: center/contain no-repeat url("../images/icons/Bag.svg");
+    background: center/contain no-repeat url("images/icons/Bag.svg");
 }
 
 .hovervariant:hover .logo6 {
-    background: center/contain no-repeat url("../images/icons/Configure_l.svg");
+    background: center/contain no-repeat url("images/icons/Configure_l.svg");
 }
 
 .logo6 {
-    background: center/contain no-repeat url("../images/icons/Configure_w.svg");
+    background: center/contain no-repeat url("images/icons/Configure_w.svg");
 }
 
 .boardTitle {
@@ -1314,12 +1312,20 @@ input.next{
     width: 23vw!important;
 }
 input.next:hover{
-    background-color: white;;
+    background-color: white;
     color: #6e6cd9;
 }
 input.previous:hover{
     background-color: white;
     color: #6e6cd9;
+}
+input.next.disabled{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #424a52;
+}
+button.next.disabled{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #424a52;
 }
 
 input.previous{

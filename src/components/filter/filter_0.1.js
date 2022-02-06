@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import {baseUrl} from "../baseRoute";
 
 export const Filter_01 = () => {
 
@@ -46,7 +47,7 @@ export const Filter_01 = () => {
 
                     </form>
                 </div>
-                <img className="img-fluid" src="frames/Frame 46.svg"/>
+                <img className="img-fluid" src={baseUrl+`/frames/Frame 46.svg`}/>
             </div>
         </div>
 

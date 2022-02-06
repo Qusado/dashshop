@@ -1,5 +1,6 @@
 import React from 'react';
 import "./exp_modal.css";
+import {baseUrl} from "../baseRoute";
 
 export const Exp_modal = ({exp_active, setExp_active, title, path, description, url}) => {
     return(
@@ -7,10 +8,17 @@ export const Exp_modal = ({exp_active, setExp_active, title, path, description, 
             setExp_active(false);
         }}>
             <div className={exp_active? "modal_e__content active" : "modal_e__content"} onClick={e=>e.stopPropagation()}>
-                {title && url && <div className="px-2 py-3"><span className="h3">Пример </span> <a className="text-decoration-underline text-info" href={`${url}`} > <span className="h3">{title}</span></a></div>}
-                <div className="row">
-                   <div className="col-9">
-                       {path && <img src={`exp/${path}`}/>}
+                 {title && url &&
+                    <div className="px-2 py-3">
+                        <span className="h3">Пример </span>
+                        <a className="text-decoration-underline text-info" href={`${url}`} >
+                            <span className="h3">{title}</span>
+                        </a>
+                    </div>
+                }
+                <div className="row" style={{height: '63vh', width: '100%', overflow: 'hidden'}}>
+                   <div className="col-9" >
+                       {path && <img src={baseUrl+`/exp/${path}`} style={{objectFit: 'contain'}}/>}
                    </div>
                     <div className="col-3">
                         <h5 className="examples_title">Описание</h5>
