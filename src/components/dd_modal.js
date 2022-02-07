@@ -41,8 +41,15 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
             const draggableElementId = event.dataTransfer.getData("id");
             const draggableElementData = event.dataTransfer.getData("images")
             event.target.insertAdjacentHTML("afterbegin",
-                `<img class="insertGraph dropped" draggable="false" id="${draggableElementId}" src="${draggableElementData}"/>
-                      <button type="button" id="${draggableElementId}" class="remove_graph">
+                `<img class="insertGraph dropped" 
+                        draggable="false"
+                        src="${draggableElementData}"  
+                        id="${draggableElementId}" 
+                      />
+                      <button type="button" 
+                        id="${draggableElementId}" 
+                        class="remove_graph"
+                      >
                                       очистить
                       </button>`);
             event.target.children[1].addEventListener('click', ClearHandler)
@@ -121,76 +128,159 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
     return(
         <div className="row mx-3 my-2">
             <h3 className="mb-2">Выбор графиков для визуализации данных</h3>
-            <div className="col-9 fon_maket">
-                <div className="row justify-content-end h-100">
-                    <div className="col-10 px-0">
-                        <div className="row h-100 align-items-end px-3">
-                            <div className="row px-0" style={{height:"75%"}}>
-                                <div className="col-4 mb-2" id="1" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>
-                                    <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input1" placeholder="название графика"/>
-                                    <div name="insert_group" className="droppable card h-100 cell" id="1"
-                                     onDragOver={(e)=> dragOver(e)}
-                                     onDragEnter={(e)=> dragEnter(e)}
-                                     onDragLeave={(e) => dragLeave(e)}
-                                     onDrop={(e)=> drop(e)}
-                                    >
+            {/*<div className="col-9 fon_maket">*/}
+            {/*    <div className="row justify-content-end h-100">*/}
+            {/*        <div className="col-10 px-0">*/}
+            {/*            <div className="row h-100 align-items-end px-3">*/}
+            {/*                <div className="row px-0" style={{height:"75%"}}>*/}
+            {/*                    <div className="col-4 mb-2" id="1" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>*/}
+            {/*                        <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input1" placeholder="название графика"/>*/}
+            {/*                        <div name="insert_group" className="droppable card h-100 cell" id="1"*/}
+            {/*                         onDragOver={(e)=> dragOver(e)}*/}
+            {/*                         onDragEnter={(e)=> dragEnter(e)}*/}
+            {/*                         onDragLeave={(e) => dragLeave(e)}*/}
+            {/*                         onDrop={(e)=> drop(e)}*/}
+            {/*                        >*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                    <div className="col-4 mb-2" id="2" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>*/}
+            {/*                        <input type="text"  name="input_group" className="form-control form-control-sm mb-1" id="input2" placeholder="название графика"/>*/}
+            {/*                        <div className="droppable card h-100 cell" id="2" name="insert_group"*/}
+            {/*                             onDragOver={(e)=> dragOver(e)}*/}
+            {/*                             onDragEnter={(e)=> dragEnter(e)}*/}
+            {/*                             onDragLeave={(e) => dragLeave(e)}*/}
+            {/*                             onDrop={(e)=> drop(e)}*/}
+            {/*                        >*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                    <div className="col-4 mb-2" id="3" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>*/}
+            {/*                        <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input3" placeholder="название графика"/>*/}
+            {/*                        <div className="droppable card h-100 cell" id="3" name="insert_group"*/}
+            {/*                             onDragOver={(e)=> dragOver(e)}*/}
+            {/*                             onDragEnter={(e)=> dragEnter(e)}*/}
+            {/*                             onDragLeave={(e) => dragLeave(e)}*/}
+            {/*                             onDrop={(e)=> drop(e)}*/}
+            {/*                        >*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                    <div className="col-4 mb-2" id="4" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>*/}
+            {/*                        <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input4" placeholder="название графика"/>*/}
+            {/*                        <div className="droppable card h-100 cell" id="4" name="insert_group"*/}
+            {/*                             onDragOver={(e)=> dragOver(e)}*/}
+            {/*                             onDragEnter={(e)=> dragEnter(e)}*/}
+            {/*                             onDragLeave={(e) => dragLeave(e)}*/}
+            {/*                             onDrop={(e)=> drop(e)}*/}
+            {/*                        >*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                    <div className="col-4 mb-2" id="5" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>*/}
+            {/*                        <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input5" placeholder="название графика"/>*/}
+            {/*                        <div className="droppable card h-100 cell" id="5" name="insert_group"*/}
+            {/*                             onDragOver={ (e)=>dragOver(e)}*/}
+            {/*                             onDragEnter={(e)=> dragEnter(e)}*/}
+            {/*                             onDragLeave={(e) => dragLeave(e)}*/}
+            {/*                             onDrop={(e)=> drop(e)}*/}
+            {/*                        >*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                    <div className="col-4 mb-2" id="6" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>*/}
+            {/*                        <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input6" placeholder="название графика"/>*/}
+            {/*                        <div className="droppable card h-100 cell" id="6" name="insert_group"*/}
+            {/*                             onDragOver={(e)=> dragOver(e)}*/}
+            {/*                             onDragEnter={(e)=> dragEnter(e)}*/}
+            {/*                             onDragLeave={(e) => dragLeave(e)}*/}
+            {/*                             onDrop={(e)=> drop(e)}*/}
+            {/*                        >*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*        </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <div className="col-9 position-relative">
+                <img src={baseUrl+"/graph_fon.png"} className="fon_maket"/>
+                <div style={{
+                    zIndex:'3',
+                    position:"absolute",
+                    top: "0",
+                    left: "0",
+                    width: "98%",
+                    height: "100%"
+
+                }}>
+                    <div className="row justify-content-end h-100">
+                        <div className="col-10 px-0">
+                            <div className="row h-100 align-items-end px-4">
+                                <div className="row px-0" style={{height:"75%"}}>
+                                    <div className="col-4 mb-2" id="1" style={{height:"38%", paddingLeft: "30px", paddingRight:"1px"}}>
+                                        <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input1" placeholder="название графика"/>
+                                        <div name="insert_group" className="droppable card h-100 cell" id="1"
+                                             onDragOver={(e)=> dragOver(e)}
+                                             onDragEnter={(e)=> dragEnter(e)}
+                                             onDragLeave={(e) => dragLeave(e)}
+                                             onDrop={(e)=> drop(e)}
+                                        >
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col-4 mb-2" id="2" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>
-                                    <input type="text"  name="input_group" className="form-control form-control-sm mb-1" id="input2" placeholder="название графика"/>
-                                    <div className="droppable card h-100 cell" id="2" name="insert_group"
-                                         onDragOver={(e)=> dragOver(e)}
-                                         onDragEnter={(e)=> dragEnter(e)}
-                                         onDragLeave={(e) => dragLeave(e)}
-                                         onDrop={(e)=> drop(e)}
-                                    >
+                                    <div className="col-4 mb-2" id="2" style={{height:"38%", paddingLeft: "23px", paddingRight:"1px"}}>
+                                        <input type="text"  name="input_group" className="form-control form-control-sm mb-1" id="input2" placeholder="название графика"/>
+                                        <div className="droppable card h-100 cell" id="2" name="insert_group"
+                                             onDragOver={(e)=> dragOver(e)}
+                                             onDragEnter={(e)=> dragEnter(e)}
+                                             onDragLeave={(e) => dragLeave(e)}
+                                             onDrop={(e)=> drop(e)}
+                                        >
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col-4 mb-2" id="3" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>
-                                    <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input3" placeholder="название графика"/>
-                                    <div className="droppable card h-100 cell" id="3" name="insert_group"
-                                         onDragOver={(e)=> dragOver(e)}
-                                         onDragEnter={(e)=> dragEnter(e)}
-                                         onDragLeave={(e) => dragLeave(e)}
-                                         onDrop={(e)=> drop(e)}
-                                    >
+                                    <div className="col-4 mb-2" id="3" style={{height:"38%", paddingLeft: "23px", paddingRight:"0px"}}>
+                                        <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input3" placeholder="название графика"/>
+                                        <div className="droppable card h-100 cell" id="3" name="insert_group"
+                                             onDragOver={(e)=> dragOver(e)}
+                                             onDragEnter={(e)=> dragEnter(e)}
+                                             onDragLeave={(e) => dragLeave(e)}
+                                             onDrop={(e)=> drop(e)}
+                                        >
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col-4 mb-2" id="4" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>
-                                    <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input4" placeholder="название графика"/>
-                                    <div className="droppable card h-100 cell" id="4" name="insert_group"
-                                         onDragOver={(e)=> dragOver(e)}
-                                         onDragEnter={(e)=> dragEnter(e)}
-                                         onDragLeave={(e) => dragLeave(e)}
-                                         onDrop={(e)=> drop(e)}
-                                    >
+                                    <div className="col-4 mb-2" id="4" style={{height:"38%", paddingLeft: "30px", paddingRight:"1px"}}>
+                                        <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input4" placeholder="название графика"/>
+                                        <div className="droppable card h-100 cell" id="4" name="insert_group"
+                                             onDragOver={(e)=> dragOver(e)}
+                                             onDragEnter={(e)=> dragEnter(e)}
+                                             onDragLeave={(e) => dragLeave(e)}
+                                             onDrop={(e)=> drop(e)}
+                                        >
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col-4 mb-2" id="5" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>
-                                    <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input5" placeholder="название графика"/>
-                                    <div className="droppable card h-100 cell" id="5" name="insert_group"
-                                         onDragOver={ (e)=>dragOver(e)}
-                                         onDragEnter={(e)=> dragEnter(e)}
-                                         onDragLeave={(e) => dragLeave(e)}
-                                         onDrop={(e)=> drop(e)}
-                                    >
+                                    <div className="col-4 mb-2" id="5" style={{height:"38%", paddingLeft: "23px", paddingRight:"1px"}}>
+                                        <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input5" placeholder="название графика"/>
+                                        <div className="droppable card h-100 cell" id="5" name="insert_group"
+                                             onDragOver={ (e)=>dragOver(e)}
+                                             onDragEnter={(e)=> dragEnter(e)}
+                                             onDragLeave={(e) => dragLeave(e)}
+                                             onDrop={(e)=> drop(e)}
+                                        >
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col-4 mb-2" id="6" style={{height:"38%", paddingLeft: "20px", paddingRight:"1px"}}>
-                                    <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input6" placeholder="название графика"/>
-                                    <div className="droppable card h-100 cell" id="6" name="insert_group"
-                                         onDragOver={(e)=> dragOver(e)}
-                                         onDragEnter={(e)=> dragEnter(e)}
-                                         onDragLeave={(e) => dragLeave(e)}
-                                         onDrop={(e)=> drop(e)}
-                                    >
+                                    <div className="col-4 mb-2" id="6" style={{height:"38%", paddingLeft: "23px", paddingRight:"0px"}}>
+                                        <input type="text" name="input_group" className="form-control form-control-sm mb-1" id="input6" placeholder="название графика"/>
+                                        <div className="droppable card h-100 cell" id="6" name="insert_group"
+                                             onDragOver={(e)=> dragOver(e)}
+                                             onDragEnter={(e)=> dragEnter(e)}
+                                             onDragLeave={(e) => dragLeave(e)}
+                                             onDrop={(e)=> drop(e)}
+                                        >
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div className="col-3 right_modal_part">
                 <div className="h-100 position-relative">
                     <section className="draggable-elements justify-content-center">

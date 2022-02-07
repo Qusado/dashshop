@@ -8,6 +8,7 @@ export const Exp_modal = ({exp_active, setExp_active, title, path, description, 
             setExp_active(false);
         }}>
             <div className={exp_active? "modal_e__content active" : "modal_e__content"} onClick={e=>e.stopPropagation()}>
+                <a href="#" className="close_modal" onClick={()=> {setExp_active(false)}}>&times;</a>
                  {title && url &&
                     <div className="px-2 py-3">
                         <span className="h3">Пример </span>
