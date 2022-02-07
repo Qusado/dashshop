@@ -41,7 +41,7 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
             const draggableElementId = event.dataTransfer.getData("id");
             const draggableElementData = event.dataTransfer.getData("images")
             event.target.insertAdjacentHTML("afterbegin",
-                `<img class="insertGraph dropped" draggable="false" id="${draggableElementId}" src="https://qusado.ru/graph/${draggableElementData}"/>
+                `<img class="insertGraph dropped" draggable="false" id="${draggableElementId}" src="${baseUrl+/graph/${draggableElementData}}"/>
                       <button type="button" id="${draggableElementId}" class="remove_graph">
                                       очистить
                       </button>`);
