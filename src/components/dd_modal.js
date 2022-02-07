@@ -41,7 +41,7 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
             const draggableElementId = event.dataTransfer.getData("id");
             const draggableElementData = event.dataTransfer.getData("images")
             event.target.insertAdjacentHTML("afterbegin",
-                `<img class="insertGraph dropped" draggable="false" id="${draggableElementId}" src="${baseUrl+/graph/${draggableElementData}}"/>
+                `<img class="insertGraph dropped" draggable="false" id="${draggableElementId}" src="${draggableElementData}}"/>
                       <button type="button" id="${draggableElementId}" class="remove_graph">
                                       очистить
                       </button>`);
@@ -199,7 +199,7 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
                                 <img className="visualGraph draggable"
                                      draggable="true"
                                      id={`${graph.constructor_chart}`}
-                                     data-images={`${graph.layout_img}`}
+                                     data-images={baseUrl+ `/graph/${graph.layout_img}`}
                                      src={baseUrl+`/graph/${graph.layout_img_variant}`}
                                      onDragStart={(e)=> dragStart(e)}/>
                             </div>
