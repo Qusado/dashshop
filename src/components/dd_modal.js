@@ -199,8 +199,8 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
                                 <img className="visualGraph draggable"
                                      draggable="true"
                                      id={`${graph.constructor_chart}`}
-                                     data-images={`${graph.layout_img}`}
-                                     src={`https://qusado.ru/graph/${graph.layout_img_variant}`}
+                                     data-images={baseUrl+`/graph/${graph.layout_img}`}
+                                     src={baseUrl+`/graph/${graph.layout_img_variant}`}
                                      onDragStart={(e)=> dragStart(e)}/>
                             </div>
                         )}
