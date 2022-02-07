@@ -41,7 +41,7 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
             const draggableElementId = event.dataTransfer.getData("id");
             const draggableElementData = event.dataTransfer.getData("images")
             event.target.insertAdjacentHTML("afterbegin",
-                `<img class="insertGraph dropped" draggable="false" id="${draggableElementId}" src="graph/${draggableElementData}"/>
+                `<img class="insertGraph dropped" draggable="false" id="${draggableElementId}" src="https://qusado.ru/graph/${draggableElementData}"/>
                       <button type="button" id="${draggableElementId}" class="remove_graph">
                                       очистить
                       </button>`);
@@ -121,7 +121,7 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
     return(
         <div className="row mx-3 my-2">
             <h3 className="mb-2">Выбор графиков для визуализации данных</h3>
-            <div className="col-9 fon_maket" style={{height:"500px", backgroundImage:'url(graph_fon.png)'}}>
+            <div className="col-9 fon_maket" style={{height:"500px"}}>
                 <div className="row justify-content-end h-100">
                     <div className="col-10 px-0">
                         <div className="row h-100 align-items-end px-3">
@@ -199,7 +199,7 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
                                 <img className="visualGraph draggable"
                                      draggable="true"
                                      id={`${graph.constructor_chart}`}
-                                     data-images={baseUrl+`/graph/${graph.layout_img}`}
+                                     data-images={`${graph.layout_img}`}
                                      src={baseUrl+`/graph/${graph.layout_img_variant}`}
                                      onDragStart={(e)=> dragStart(e)}/>
                             </div>

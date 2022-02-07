@@ -43,6 +43,7 @@ body {
 }
 
 .fon_maket{
+    background-image: url("images/graph_fon.png");
     background: no-repeat;
     background-size: 100% 100%;
 }
