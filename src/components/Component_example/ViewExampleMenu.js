@@ -40,7 +40,6 @@ export const ViewExampleMenu =({current_menu, exp_active, setExp_active})=> {
         setPath(event.target.getAttribute("data-img"))
         setDescription(event.target.getAttribute("data-description"))
         setUrl(event.target.getAttribute("data-url"))
-        //console.log("titlr", event.target.parent.getAttribute("data-title"));
         setExp_active(true)
     };
 

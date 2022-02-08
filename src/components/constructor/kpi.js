@@ -28,9 +28,7 @@ export const KPI = ({form ,setForm}) =>{
                 const k = res.data;
                 setKpis(k);
             });
-        } catch (e){
-
-        }
+        } catch (e){}
     }, [token, request ])
 
     const [current_kpi, setCurrentKpi] = useState({
@@ -41,7 +39,6 @@ export const KPI = ({form ,setForm}) =>{
     $(".praon30").on("click",function() {
         $(".praon30").removeClass('current_choise');
         $(this).addClass('current_choise');
-
     })
 
 
@@ -63,7 +60,6 @@ export const KPI = ({form ,setForm}) =>{
                         <div className="col-12 px-0 mb-2">
                             <div className="background_title">
                                 <ViewKpiTitle current_kpi={current_kpi}/>
-
                             </div>
                         </div>
                         <div className="col-8" style={{paddingLeft: "30px", paddingRight: "0px"}}>
@@ -85,8 +81,9 @@ export const KPI = ({form ,setForm}) =>{
                             <h5 className="examples_title">Примеры</h5>
                         </div>
                         <div className="col-8">
-                            <ViewExampleKPI current_kpi={current_kpi} exp_active={modalViewExpActive}
-                                             setExp_active={setModalViewExpActive}/>
+                            <ViewExampleKPI current_kpi={current_kpi}
+                                            exp_active={modalViewExpActive}
+                                            setExp_active={setModalViewExpActive}/>
                         </div>
                     </div>
                 </div>

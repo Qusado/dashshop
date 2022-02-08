@@ -63,7 +63,6 @@ export const Visual = ({form, setCreateMaket}) =>{
                         <div className="col-12 px-0 mb-2">
                             <div className="background_title">
                                 <ViewVisualTitle current_visual={current_visual}/>
-
                             </div>
                         </div>
                         <div className="col-8" style={{paddingLeft: "30px", paddingRight: "0px"}}>
@@ -85,8 +84,9 @@ export const Visual = ({form, setCreateMaket}) =>{
                             <h5 className="examples_title">Примеры</h5>
                         </div>
                         <div className="col-8">
-                            <ViewExampleVisual current_visual={current_visual} exp_active={modalViewExpActive}
-                                             setExp_active={setModalViewExpActive}/>
+                            <ViewExampleVisual current_visual={current_visual}
+                                               exp_active={modalViewExpActive}
+                                               setExp_active={setModalViewExpActive}/>
                         </div>
                     </div>
                 </div>

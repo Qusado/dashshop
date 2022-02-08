@@ -16,7 +16,6 @@ export const Menu = ({form, setForm}) =>{
     const {request, loading} = useHttp()
     const [menus, setMenus] = useState()
     const [choise, setChoise] = useState(false);
-
     const getMenus = useCallback(async ()=>{
         try{
             const fetched = await $host.get(`/api/menu`, {

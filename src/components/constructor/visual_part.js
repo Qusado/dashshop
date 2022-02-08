@@ -56,12 +56,9 @@ export const Visual_part = ({form,setForm, setCreateMaket})=> {
         catch (e) {}
     }
 
-
     useEffect(()=>{
         getVisuals()
     }, [getVisuals])
-
-    console.log("vv", form)
 
     return(
         <fieldset>

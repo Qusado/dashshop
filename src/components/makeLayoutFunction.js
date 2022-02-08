@@ -7,7 +7,6 @@ export const makeLayoutFunction = ()=>{
         document.querySelectorAll('[data-hover-src]').forEach((img) => {
             const src = img.getAttribute('src');
             const srcH = img.getAttribute('data-hover-src');
-
             img.parentElement.parentElement.addEventListener('mouseover', () => {img.src = srcH;})
             img.parentElement.parentElement.addEventListener('mouseout', () => {img.src = src;})
         });
@@ -57,8 +56,7 @@ export const makeLayoutFunction = ()=>{
     var f = Number(data.filter_id);
     var k = Number(data.kpi_id);
     var v = Number(data.visual_id);
-    console.log("form", data);
-    //menu
+
     var code_menu_2 = ' <div class="d-flex flex-column bd-highlight nav1">\
                                 <div class="nav-item hovervariant py-3 mt-3" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\

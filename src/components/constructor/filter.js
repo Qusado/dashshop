@@ -27,9 +27,7 @@ export const Filter = ({form, setForm}) =>{
                 const f = res.data;
                 setFilters(f);
             });
-        } catch (e){
-
-        }
+        } catch (e){}
     }, [token, request ])
 
     const [current_filter, setCurrentFilter] = useState({
@@ -60,7 +58,6 @@ export const Filter = ({form, setForm}) =>{
                         <div className="col-12 px-0 mb-2">
                             <div className="background_title">
                                 <ViewFilterTitle current_filter={current_filter}/>
-
                             </div>
                         </div>
                         <div className="col-8" style={{paddingLeft: "30px", paddingRight: "0px"}}>
@@ -82,8 +79,9 @@ export const Filter = ({form, setForm}) =>{
                             <h5 className="examples_title">Примеры</h5>
                         </div>
                         <div className="col-8">
-                            <ViewExampleFilter current_filter={current_filter} exp_active={modalViewExpActive}
-                                             setExp_active={setModalViewExpActive}/>
+                            <ViewExampleFilter current_filter={current_filter}
+                                               exp_active={modalViewExpActive}
+                                               setExp_active={setModalViewExpActive}/>
                         </div>
                     </div>
                 </div>

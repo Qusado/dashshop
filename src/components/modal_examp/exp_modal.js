@@ -29,9 +29,6 @@ export const Exp_modal = ({exp_active, setExp_active, title, path, description, 
 
                     </div>
                     <div className="col-3 pt-4">
-                        {/*<figcaption className="blockquote-footer">*/}
-                        {/*    {url &&  <span className="fs-5"> Ссылка:  <a href={`${url}`} className="text-decoration-underline text-info">{url}</a></span>}*/}
-                        {/*</figcaption>*/}
                     </div>
 
                 </div>

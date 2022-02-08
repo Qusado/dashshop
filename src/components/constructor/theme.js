@@ -5,20 +5,17 @@ import $ from "jquery";
 
 
 export const Theme = ({themes}) =>{
-
     $(function() {
         $("[name=toggler]").click(function(){
             $('.toHide').hide();
             $("#blk-"+$(this).val()).show();
         });
     });
-
     return(
         <div className="container h-100 lox">
             <h1 className="pt-2 pb-4 mb-0">Направление тематики дашборда</h1>
             <div className="row h-auto lox2">
                     <fieldset className="form-group theme_label col-6">
-
                         { themes && themes.map((themes, index) => {
                             return(
                                 <div className="form-check">
@@ -30,7 +27,6 @@ export const Theme = ({themes}) =>{
                                 </div>
                             );})}
                         <button type="button" className="btn btn-secondary btn-lg mt-3 ">Выбрать</button>
-
                     </fieldset>
                 <div className="col-6">
                     { themes && themes.map((theme, index) => {
@@ -47,7 +43,6 @@ export const Theme = ({themes}) =>{
                             </div>
                         );})}
                 </div>
-
             </div>
         </div>
     )

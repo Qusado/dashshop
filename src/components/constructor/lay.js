@@ -242,7 +242,6 @@ export const Lay = ({form, setForm, createMaket}) => {
                                                 <div className="row px-4">
                                                     <div className="h6 mt-3"><strong>Форма отчетности</strong> </div>
                                                     <div className="h6 mt-1">{report.title}</div>
-
                                                     <h6 className="mt-3"><strong>Графики</strong></h6>
                                                     {charts ?
                                                         <div className="row">
@@ -381,7 +380,6 @@ export const Lay = ({form, setForm, createMaket}) => {
                                     <input type="email" className="form-control" id="floatingInput" onChange={costHandler}/>
                                     <label htmlFor="floatingInput">Прогнозируемая цена</label>
                                 </div>
-
                             </form>
                         </div>
                     </div>
