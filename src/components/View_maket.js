@@ -2431,45 +2431,64 @@ export const View_maket = ({form}) =>{
                         for_other_columns.appendChild(kpi1);
                         for_other_columns.style.display = "block";
                         if (v === 1) {
-                            let ground = makeBackground('/backs/Frame 55.png');
-                            board.insertBefore(ground, board.firstChild);
-                        } else if (v === 2) {
                             let ground = makeBackground('/backs/Frame 56.png');
                             board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 55.png');
+                            board.insertBefore(ground, board.firstChild);
                         } else {
-                            // var v3 = document.createElement("div");
-                            // v3.classList.add('position-relative');
-                            // v3.innerHTML = code_v_3;
-                            // other_place_10.insertBefore(v3, other_place_10.firstChild);
-                            // document.getElementById("maket").style.backgroundImage = "url('../images/backs/53chart.png')";
-                            // document.getElementById("maket").style.backgroundSize = "100%";
-                            // document.getElementById("chart").addEventListener("click", ChartBack("url('../backs/Frame 96.png')"));
-                            // document.getElementById("table").addEventListener("click", TableBack("url('../backs/Frame 84.png')"));
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            v3.style.height = '40px';
+                            title.appendChild(v3);
+                            title.classList.add('justify-content-end')
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 55.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
 
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 55.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 56.png')")
+                                }
+                            )
                         }
-                    } else if (k === 2) {
+                    } else if (k === 2)
+                    {
                         let kpi2 = makeDiv(['col-12']);
                         kpi2.innerHTML = code_kpi_2_full;
                         for_other_columns.appendChild(kpi2);
                         for_other_columns.style.display = "block";
                         if (v === 1) {
-                            let ground = makeBackground('/backs/Frame 65.png');
-                            board.insertBefore(ground, board.firstChild);
-                        } else if (v === 2) {
                             let ground = makeBackground('/backs/Frame 64.png');
                             board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 65.png');
+                            board.insertBefore(ground, board.firstChild);
                         } else {
-                            // var v3 = document.createElement("div");
-                            // v3.classList.add('position-relative');
-                            // v3.innerHTML = code_v_3;
-                            // other_place_10.insertBefore(v3, other_place_10.firstChild);
-                            // document.getElementById("maket").style.backgroundImage = "url('../images/backs/53chart.png')";
-                            // document.getElementById("maket").style.backgroundSize = "100%";
-                            // document.getElementById("chart").addEventListener("click", ChartBack("url('../backs/Frame 96.png')"));
-                            // document.getElementById("table").addEventListener("click", TableBack("url('../backs/Frame 84.png')"));
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            v3.style.height = '40px';
+                            title.appendChild(v3);
+                            title.classList.add('justify-content-end')
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 65.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
 
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 65.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 64.png')")
+                                }
+                            )
                         }
-                    } else if (k === 3) {
+                    }
+                    else if (k === 3)
+                    {
                         let kpi3 = makeDiv(['col-3', 'mt-2']);
                         kpi3.innerHTML = code_kpi_1_full;
                         kpi3.style.paddingLeft = "5%";
@@ -2483,19 +2502,28 @@ export const View_maket = ({form}) =>{
                             let ground = makeBackground('/backs/Frame 67.png');
                             board.insertBefore(ground, board.firstChild);
                         } else {
-                            // var v3 = document.createElement("div");
-                            // v3.classList.add('position-relative');
-                            // v3.innerHTML = code_v_3;
-                            // other_place_10.insertBefore(v3, other_place_10.firstChild);
-                            // document.getElementById("maket").style.backgroundImage = "url('../images/backs/53chart.png')";
-                            // document.getElementById("maket").style.backgroundSize = "100%";
-                            // document.getElementById("chart").addEventListener("click", ChartBack("url('../backs/Frame 96.png')"));
-                            // document.getElementById("table").addEventListener("click", TableBack("url('../backs/Frame 84.png')"));
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            v3.style.height = '40px';
+                            title.appendChild(v3);
+                            title.classList.add('justify-content-end')
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 66.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
 
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 66.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 67.png')")
+                                }
+                            )
                         }
 
                     }
-                } else if (f === 3) {
+                }
+                else if (f === 3) {
                     let fil3 = makeDiv(['col-1', 'p-0', 'm-0']);
                     fil3.innerHTML = code_fil_3_union_m_6;
                     fil3.style.zIndex = '3';
@@ -2511,20 +2539,29 @@ export const View_maket = ({form}) =>{
                         for_other_columns.appendChild(kpi1);
                         for_other_columns.style.display = "block";
                         if (v === 1) {
-                            let ground = makeBackground('/backs/Frame 68.png');
-                            board.insertBefore(ground, board.firstChild);
-                        } else if (v === 2) {
                             let ground = makeBackground('/backs/Frame 69.png');
                             board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 68.png');
+                            board.insertBefore(ground, board.firstChild);
                         } else {
-                            // var v3 = document.createElement("div");
-                            // v3.classList.add('position-relative');
-                            // v3.innerHTML = code_v_3;
-                            // other_place_10.insertBefore(v3, other_place_10.firstChild);
-                            // document.getElementById("maket").style.backgroundImage = "url('../images/backs/53chart.png')";
-                            // document.getElementById("maket").style.backgroundSize = "100%";
-                            // document.getElementById("chart").addEventListener("click", ChartBack("url('../backs/Frame 96.png')"));
-                            // document.getElementById("table").addEventListener("click", TableBack("url('../backs/Frame 84.png')"));
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            v3.style.height = '40px';
+                            title.appendChild(v3);
+                            title.classList.add('justify-content-end')
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 68.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 68.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 69.png')")
+                                }
+                            )
 
                         }
                     } else if (k === 2) {
@@ -2534,20 +2571,30 @@ export const View_maket = ({form}) =>{
                         other_place_11.style.display = 'block';
                         for_other_columns.style.display = "block";
                         if (v === 1) {
-                            let ground = makeBackground('/backs/Frame 72.png');
-                            board.insertBefore(ground, board.firstChild);
-                        } else if (v === 2) {
                             let ground = makeBackground('/backs/Frame 73.png');
                             board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 72.png');
+                            board.insertBefore(ground, board.firstChild);
                         } else {
-                            // var v3 = document.createElement("div");
-                            // v3.classList.add('position-relative');
-                            // v3.innerHTML = code_v_3;
-                            // other_place_10.insertBefore(v3, other_place_10.firstChild);
-                            // document.getElementById("maket").style.backgroundImage = "url('../images/backs/53chart.png')";
-                            // document.getElementById("maket").style.backgroundSize = "100%";
-                            // document.getElementById("chart").addEventListener("click", ChartBack("url('../backs/Frame 96.png')"));
-                            // document.getElementById("table").addEventListener("click", TableBack("url('../backs/Frame 84.png')"));
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            v3.style.height = '40px';
+                            title.appendChild(v3);
+                            title.classList.add('justify-content-end')
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 72.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 72.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 73.png')")
+                                }
+                            )
+
 
                         }
                     } else if (k === 3) {
@@ -2564,15 +2611,23 @@ export const View_maket = ({form}) =>{
                             let ground = makeBackground('/backs/Frame 75.png');
                             board.insertBefore(ground, board.firstChild);
                         } else {
-                            // var v3 = document.createElement("div");
-                            // v3.classList.add('position-relative');
-                            // v3.innerHTML = code_v_3;
-                            // other_place_10.insertBefore(v3, other_place_10.firstChild);
-                            // document.getElementById("maket").style.backgroundImage = "url('../images/backs/53chart.png')";
-                            // document.getElementById("maket").style.backgroundSize = "100%";
-                            // document.getElementById("chart").addEventListener("click", ChartBack("url('../backs/Frame 96.png')"));
-                            // document.getElementById("table").addEventListener("click", TableBack("url('../backs/Frame 84.png')"));
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            v3.style.height = '40px';
+                            title.appendChild(v3);
+                            title.classList.add('justify-content-end')
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 75.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
 
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 75.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 74.png')")
+                                }
+                            )
                         }
 
                     }
@@ -2608,7 +2663,7 @@ export const View_maket = ({form}) =>{
         //     }
         //
         // }
-         Make(6, 1, 3, 3, 1);
+         Make(6, 3, 3, 3, 1);
     }
 
 
@@ -2616,8 +2671,8 @@ $(document).ready(
     function (){
 
         if(form) {
-             // Generate();
-             Make(form.menu_id, form.filter_id, form.kpi_id, form.visual_id);
+              Generate();
+             //Make(form.menu_id, form.filter_id, form.kpi_id, form.visual_id);
         }
     })
 
