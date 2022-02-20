@@ -17,17 +17,17 @@ export const Fields_2 = () => {
         kpi_id: 0,
         visual_id: 0,
         report_id: 0,
-        g1: 0,
+        g1: null,
         g1_title: '',
-        g2: 0,
+        g2: null,
         g2_title: '',
-        g3: 0,
+        g3: null,
         g3_title: '',
-        g4: 0,
+        g4: null,
         g4_title: '',
-        g5: 0,
+        g5: null,
         g5_title: '',
-        g6: 0,
+        g6: null,
         g6_title: '',
     });
     const [createMaket, setCreateMaket] = useState(false);
@@ -78,7 +78,7 @@ export const Fields_2 = () => {
                 <Filter form={form} setForm={setForm} />
                 <KPI form={form} setForm={setForm}/>
                 <Report form={form} setForm={setForm}/>
-                <Visual_part form={form} setForm={setForm} setCreateMaket={setCreateMaket}/>
+                <Visual_part form={form} setForm={setForm} createMaket={createMaket} setCreateMaket={setCreateMaket}/>
                 <Lay form={form} setForm={setForm} createMaket={createMaket}/>
                 <ul id="progressbar" className="fixed-bottom">
                     <li className="active" id="menu"><h6>Меню</h6></li>

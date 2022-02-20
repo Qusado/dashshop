@@ -1,5 +1,4 @@
 {
-  "homepage": "https://qusado.github.io/dashshop/",
   "name": "client",
   "version": "0.1.0",
   "private": true,
@@ -28,14 +27,20 @@
     "file-saver": "^2.0.5",
     "gh-pages": "^3.2.3",
     "jquery": "^3.6.0",
+    "materialize-css": "^1.0.0-rc.2",
     "popper.js": "^1.16.1",
     "react": "^17.0.2",
+    "react-alert": "^7.0.3",
+    "react-alert-template-basic": "^1.0.2",
+    "react-alert-template-oldschool-dark": "^1.0.1",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "update": "^0.7.4",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "prop-types": "^15.6.2",
+    "react-transition-group": "^2.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -51,7 +56,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "https://qusado.ru",
+  "proxy": "http://localhost:5000",
   "browserslist": {
     "production": [
       ">0.2%",

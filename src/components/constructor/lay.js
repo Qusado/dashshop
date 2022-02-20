@@ -1,10 +1,12 @@
 import {useCallback, useContext, useEffect, useState} from 'react';
 import * as React from 'react';
-import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
+import {PDFExport, savePDF } from "@progress/kendo-react-pdf";
 import {AuthContext} from "../../context/Auth.Context";
 import {useHttp} from "../../hooks/http.hook";
 import {$host} from "../../http";
 import "../../pdf_style.css"
+import {View_maket} from "../View_maket";
+import {Lol} from "../lol";
 import {baseUrl} from "../baseRoute";
 
 export const Lay = ({form, setForm, createMaket}) => {
@@ -26,8 +28,6 @@ export const Lay = ({form, setForm, createMaket}) => {
         {id:6, id_g:'', title:"", img:'', desc:''}
     ])
 
-
-
     const getMenu = useCallback(async ()=>{
         try{
             const fetched = await $host.get(`/api/menu/${form.menu_id}`, {
@@ -42,7 +42,6 @@ export const Lay = ({form, setForm, createMaket}) => {
 
         }
     }, [token, form.menu_id, request ]);
-
 
     const getFilter = useCallback(async ()=>{
         try{
@@ -90,7 +89,6 @@ export const Lay = ({form, setForm, createMaket}) => {
     }, [token, form.visual_id, request ]);
 
     const getReport = useCallback(async ()=>{
-        console.log("getrep", form);
         try{
             const fetched = await $host.get(`/api/report/${form.report_id}`, {
                 headers:{
@@ -106,7 +104,6 @@ export const Lay = ({form, setForm, createMaket}) => {
     }, [token, form.report_id, request ]);
 
     const getCharts = useCallback(async ()=>{
-        console.log("getch", form);
         try{
             const params = {
                 g1: form.g1,
@@ -123,7 +120,12 @@ export const Lay = ({form, setForm, createMaket}) => {
                 }
             }).then(res => {
                 const c = res.data;
-                setCharts(c);
+                if(c!=="no graphs"){
+                    setCharts(c);
+                }else{
+
+                }
+
             })
         } catch (e){
 
@@ -140,8 +142,10 @@ export const Lay = ({form, setForm, createMaket}) => {
     }, [getMenu, getFilter, getKpi, getVisual, getReport, getCharts])
 
 
+
+
+
     const box = React.useRef(null);
-    const pdfExportComponent = React.useRef(null);
     const exportPDFWithMethod = () => {
         let element = box.current || document.body;
         savePDF(element, {
@@ -152,8 +156,6 @@ export const Lay = ({form, setForm, createMaket}) => {
     }
 
     if(charts){
-        console.log("cc", charts);
-
         graphs[0].id_g = form.g1;
         graphs[0].desc = form.g1_title;
         graphs[1].id_g = form.g2;
@@ -166,9 +168,6 @@ export const Lay = ({form, setForm, createMaket}) => {
         graphs[4].desc = form.g5_title;
         graphs[5].id_g = form.g6;
         graphs[5].desc = form.g6_title;
-
-        console.log("gg", graphs);
-
         for (var i = 0; i < graphs.length; i++) {
             for (var k = 0; k < charts.length; k++){
                 if(Number(graphs[i].id_g) === charts[k].constructor_chart){
@@ -198,7 +197,7 @@ export const Lay = ({form, setForm, createMaket}) => {
         document.getElementById("comment_pm").value = event.target.value;
     }
 
-    console.log(charts);
+
 
     return(
         <fieldset style={{backgroundColor: 'white'}}>
@@ -210,115 +209,95 @@ export const Lay = ({form, setForm, createMaket}) => {
                 </div>
                 <div className="col-12 mt-4">
                     <div className="row justify-content-center">
-                        <div className="col-8" style={{marginRight:'20px'}}>
-                            <p className="px-3">Предпросмотр документа</p>
-                            <div className="pt-4 maket" id="maket">
-                                {menu && kpi && filter && visual && report ?
-                                <PDFExport ref={pdfExportComponent} paperSize="auto" margin={20} fileName={`Report for ${new Date().getFullYear()}`}>
+                        <div className="col-8" style={{marginRight:'20px', marginBottom:'20vh'}}>
+
+                            {form.menu_id!==0 && form.kpi_id!==0 && form.filter_id!==0 && form.visual_id!==0 && form.report_id!==0 && createMaket===true &&
+                                <PDFExport paperSize="auto" margin={20} fileName={`Report for ${new Date().getFullYear()}`}>
                                     <div ref={box}>
-                                        <h5 className="text-center">Техническое описание отчета</h5>
-                                        <hr className="k-hr"/>
-                                        <div className="row">
-                                            <div className="col-12">
-                                                <div className="row px-4">
-                                                    <h6 className="mt-3"><strong>Компоненты</strong></h6>
-                                                    <div className="col-3">
-                                                        <p>{menu.title}</p>
-                                                        <img src={baseUrl+`/mini/${menu.layout_img}`}/>
-                                                    </div>
-                                                    <div className="col-3">
-                                                        <p>{filter.title}</p>
-                                                        <img src={baseUrl+`/mini/${filter.layout_img}`}/>
-                                                    </div>
-                                                    <div className="col-3">
-                                                        <p>{kpi.title}</p>
-                                                        <img src={baseUrl+`/mini/${kpi.layout_img}`}/>
-                                                    </div>
-                                                    <div className="col-3">
-                                                        <p>{visual.title}</p>
-                                                        <img src={baseUrl+`/mini/${visual.layout_img}`}/>
-                                                    </div>
-                                                </div>
-                                                <div className="row px-4">
-                                                    <div className="h6 mt-3"><strong>Форма отчетности</strong> </div>
-                                                    <div className="h6 mt-1">{report.title}</div>
-                                                    <h6 className="mt-3"><strong>Графики</strong></h6>
-                                                    {charts ?
-                                                        <div className="row">
-                                                            <div className="col-10 row">
-                                                                <div className="col-4 mb-2" id="1"
-                                                                     style={{paddingLeft: "20px", paddingRight: "1px"}}>
-                                                                    <input type="text"
-                                                                           className="form-control form-control-sm mb-1"
-                                                                           id="input1" value={form.g1_title} disabled/>
-                                                                    <img className="pdf_img"
-                                                                         src={baseUrl + `/graph/${graphs[0].img}`}/>
-                                                                    <figure className="text-end">
-                                                                        <p>{graphs[0].title}</p>
-                                                                    </figure>
-                                                                </div>
-                                                                <div className="col-4 mb-2" id="2"
-                                                                     style={{paddingLeft: "20px", paddingRight: "1px"}}>
-                                                                    <input type="text"
-                                                                           className="form-control form-control-sm mb-1"
-                                                                           id="input2" value={form.g2_title} disabled/>
-                                                                    <img className="pdf_img"
-                                                                         src={baseUrl + `/graph/${graphs[1].img}`}/>
-                                                                    <figure className="text-end">
-                                                                        <p>{graphs[1].title}</p>
-                                                                    </figure>
-                                                                </div>
-                                                                <div className="col-4 mb-2" id="3"
-                                                                     style={{paddingLeft: "20px", paddingRight: "1px"}}>
-                                                                    <input type="text"
-                                                                           className="form-control form-control-sm mb-1"
-                                                                           id="input3" value={form.g3_title} disabled/>
-                                                                    <img className="pdf_img"
-                                                                         src={baseUrl + `/graph/${graphs[2].img}`}/>
-                                                                    <figure className="text-end">
-                                                                        <p>{graphs[2].title}</p>
-                                                                    </figure>
-                                                                </div>
-                                                                <div className="col-4 mb-4" id="4"
-                                                                     style={{paddingLeft: "20px", paddingRight: "1px"}}>
-                                                                    <input type="text"
-                                                                           className="form-control form-control-sm mb-1"
-                                                                           id="input4" value={form.g4_title} disabled/>
-                                                                    <img className="pdf_img"
-                                                                         src={baseUrl + `/graph/${graphs[3].img}`}/>
-                                                                    <figure className="text-end">
-                                                                        <p>{graphs[3].title}</p>
-                                                                    </figure>
-                                                                </div>
-                                                                <div className="col-4 mb-4" id="5"
-                                                                     style={{paddingLeft: "20px", paddingRight: "1px"}}>
-                                                                    <input type="text"
-                                                                           className="form-control form-control-sm mb-1"
-                                                                           id="input5" value={form.g5_title} disabled/>
-                                                                    <img className="pdf_img"
-                                                                         src={baseUrl + `/graph/${graphs[4].img}`}/>
-                                                                    <figure className="text-end">
-                                                                        <p>{graphs[4].title}</p>
-                                                                    </figure>
-                                                                </div>
-                                                                <div className="col-4 mb-4" id="6"
-                                                                     style={{paddingLeft: "20px", paddingRight: "1px"}}>
-                                                                    <input type="text" name="input_group"
-                                                                           className="form-control form-control-sm mb-1"
-                                                                           id="input6" value={form.g6_title} disabled/>
-                                                                    <img className="pdf_img"
-                                                                         src={baseUrl + `/graph/${graphs[5].img}`}/>
-                                                                    <figure className="text-end">
-                                                                        <p>{graphs[5].title}</p>
-                                                                    </figure>
-                                                                </div>
-                                                            </div>
+                                        <div className="row px-4">
+                                            <h6 className=""><strong>Макет</strong></h6>
+                                        </div>
+                                        <div className="maket" id="maket">
+                                            <View_maket form={form}/>
+                                        </div>
+                                        <div className="row px-4">
+                                            <div className="h6 mt-3"><strong>Форма отчетности</strong> </div>
+                                            <div className="h6 mt-1">{report.title}</div>
+                                            <h6 className="mt-3"><strong>Графики</strong></h6>
+                                            {charts ?
+                                                <div className="row">
+                                                    <div className="col-10 row">
+                                                        <div className="col-4 mb-2" id="1"
+                                                             style={{paddingLeft: "20px", paddingRight: "1px"}}>
+                                                            <input type="text"
+                                                                   className="form-control form-control-sm mb-1"
+                                                                   id="input1" value={form.g1_title} disabled/>
+                                                            <img className="pdf_img"
+                                                                 src={baseUrl + `/graph/${graphs[0].img}`}/>
+                                                            <figure className="text-end">
+                                                                <p>{graphs[0].title}</p>
+                                                            </figure>
                                                         </div>
-                                                    :
-                                                        <div className="h6 mt-1">Графики не указаны</div>
-                                                    }
+                                                        <div className="col-4 mb-2" id="2"
+                                                             style={{paddingLeft: "20px", paddingRight: "1px"}}>
+                                                            <input type="text"
+                                                                   className="form-control form-control-sm mb-1"
+                                                                   id="input2" value={form.g2_title} disabled/>
+                                                            <img className="pdf_img"
+                                                                 src={baseUrl + `/graph/${graphs[1].img}`}/>
+                                                            <figure className="text-end">
+                                                                <p>{graphs[1].title}</p>
+                                                            </figure>
+                                                        </div>
+                                                        <div className="col-4 mb-2" id="3"
+                                                             style={{paddingLeft: "20px", paddingRight: "1px"}}>
+                                                            <input type="text"
+                                                                   className="form-control form-control-sm mb-1"
+                                                                   id="input3" value={form.g3_title} disabled/>
+                                                            <img className="pdf_img"
+                                                                 src={baseUrl + `/graph/${graphs[2].img}`}/>
+                                                            <figure className="text-end">
+                                                                <p>{graphs[2].title}</p>
+                                                            </figure>
+                                                        </div>
+                                                        <div className="col-4 mb-4" id="4"
+                                                             style={{paddingLeft: "20px", paddingRight: "1px"}}>
+                                                            <input type="text"
+                                                                   className="form-control form-control-sm mb-1"
+                                                                   id="input4" value={form.g4_title} disabled/>
+                                                            <img className="pdf_img"
+                                                                 src={baseUrl + `/graph/${graphs[3].img}`}/>
+                                                            <figure className="text-end">
+                                                                <p>{graphs[3].title}</p>
+                                                            </figure>
+                                                        </div>
+                                                        <div className="col-4 mb-4" id="5"
+                                                             style={{paddingLeft: "20px", paddingRight: "1px"}}>
+                                                            <input type="text"
+                                                                   className="form-control form-control-sm mb-1"
+                                                                   id="input5" value={form.g5_title} disabled/>
+                                                            <img className="pdf_img"
+                                                                 src={baseUrl + `/graph/${graphs[4].img}`}/>
+                                                            <figure className="text-end">
+                                                                <p>{graphs[4].title}</p>
+                                                            </figure>
+                                                        </div>
+                                                        <div className="col-4 mb-4" id="6"
+                                                             style={{paddingLeft: "20px", paddingRight: "1px"}}>
+                                                            <input type="text" name="input_group"
+                                                                   className="form-control form-control-sm mb-1"
+                                                                   id="input6" value={form.g6_title} disabled/>
+                                                            <img className="pdf_img"
+                                                                 src={baseUrl + `/graph/${graphs[5].img}`}/>
+                                                            <figure className="text-end">
+                                                                <p>{graphs[5].title}</p>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                :
+                                                <div className="h6 mt-1">Графики не указаны</div>
+                                            }
                                         </div>
                                         <hr className="k-hr"/>
                                         <h6 className="px-4" >Комментарии</h6>
@@ -350,8 +329,7 @@ export const Lay = ({form, setForm, createMaket}) => {
                                         </ul>
                                     </div>
                                 </PDFExport>
-                                    : <h6>loading...</h6>}
-                            </div>
+                            }
                         </div>
                         <div className="col-3">
                             <form>
@@ -385,9 +363,9 @@ export const Lay = ({form, setForm, createMaket}) => {
                     </div>
                 </div>
             </div>
+
             <div className="button_place">
                 <div className="row col-12 justify-content-end py-2">
-                    {/*<input type="button" name="previous" className="previous action-button shadow" value="Вернуться"/>*/}
                     <button type="button" name="next"
                             className="col-3 save_btn action-button shadow"
                             onClick={exportPDFWithMethod}
@@ -397,4 +375,4 @@ export const Lay = ({form, setForm, createMaket}) => {
             </div>
         </fieldset>
     )
-};
+}

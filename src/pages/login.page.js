@@ -1,18 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react'
-import {NavLink, useHistory} from "react-router-dom";
-import { AuthContext } from '../context/Auth.Context.js';
+import React, {useContext, useEffect, useState} from 'react'
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook';
+import {NavLink, useHistory} from 'react-router-dom'
+import {$host} from "../http";
+import {AuthContext} from "../context/Auth.Context";
+import { useAlert } from 'react-alert';
+import {baseUrl} from "../components/baseRoute";
 
 
 export const LoginPage = () => {
     const auth = useContext(AuthContext)
-    const history = useHistory()
     const message = useMessage()
-    const {loading, request, error, clearError} = useHttp()
+    const history = useHistory()
+    const {loading, error, clearError} = useHttp()
     const [form, setForm] = useState({
         email: '', password: ''
     })
+
+    const alert = useAlert()
 
     useEffect(() => {
         message(error)
@@ -23,47 +28,74 @@ export const LoginPage = () => {
         setForm({...form, [event.target.name]: event.target.value })
     }
 
-    const loginhandler = async () => {
+    const registerhandler = async () => {
         try {
-            const data = await request('/api/users/login', 'POST', {...form})
-            auth.login(data.token, data.userId)
-            history.push("/");
-        } catch (e) {}
-        //}
-    }
-    return(
-        <div>
-            <div className="row justify-content-md-center" style={{margin: '10%'}}>
-                <div className="card col-8 offset-s3">
-                    <div className="card-body">
-                        <div className="mb-3">
-                            <label htmlFor="email" className="form-label">Email address</label>
-                            <input type="email" className="form-control _req _email" name="email" id="email"
-                                   aria-describedby="emailHelp" onChange={changeHandler}
-                                   value={form.email}/>
-                            <span className="" />
-                        </div>
-                        <span className="_err-message-span" />
-                        <div className="mb-3">
-                            <label htmlFor="password" className="form-label">Password</label>
-                            <input type="password" className="form-control _req _password"
-                                   name="password" id="password" onChange={changeHandler}
-                                   value={form.password}/>
-                            <span className="" />
-                        </div>
-                        <span className="_err-message-span" />
-                        <div className="">нет аккаунта? <NavLink to="/register">Зарегистрируйтесь</NavLink></div>
+            const fetched = await $host.post(`/api/users/login`, {...form})
+                .catch(function (error) {
+                    ViewAlert(error.response);
+                })
+                .then(res => auth.login(res.data));
+            history.push('/');
+        } catch (e) {
 
+        }
+    }
+
+    function ViewAlert(response){
+        alert.show(response.data.message);
+    }
+
+
+    return(
+        <>
+            <img className="BackPic" src={baseUrl+"/fon4.png"}/>
+            <div className="first_box" style={{
+                backgroundColor: "rgba(0,0,0,0.5)",
+                backdropFilter: "blur(2px)",
+            zIndex:'3',
+            position:"absolute",
+                top: "7vh",
+                left: "0",
+                height: "93vh",
+                width: '100%'
+            }}>
+                <div className="row justify-content-md-center" style={{margin: '10%'}}>
+                    <div className="card col-8 offset-s3">
+                        <div className="card-body">
+                            <div className="mb-3">
+                                <label htmlFor="email" className="form-label b">Email address</label>
+                                <input
+                                    type="email"
+                                    className="form-control _req _email"
+                                    aria-describedby="emailHelp"
+                                    id="email"
+                                    name="email"
+                                    onChange={changeHandler}
+                                    value={form.email}
+                                />
+                                <span className="" />
+                            </div>
+                            <span className="_err-message-span" />
+                            <div className="mb-3">
+                                <label htmlFor="password" className="form-label b">Password</label>
+                                <input type="password" className="form-control _req _password"
+                                       name="password" id="password"
+                                       onChange={changeHandler}
+                                       value={form.password}/>
+                                <span className="" />
+                            </div>
+                            <span className="_err-message-span" />
+
+                        </div>
+                        <button
+                            className=" btn btn-light m-4"
+                            onClick={registerhandler}
+                            disabled={loading}>
+                            LogIn
+                        </button>
                     </div>
-                    <button
-                        className="btn btn-light m-4"
-                        onClick={loginhandler}
-                        disabled={loading}>
-                        Login
-                    </button>
                 </div>
             </div>
-
-        </div>
+        </>
     )
 }

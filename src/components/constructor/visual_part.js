@@ -9,7 +9,7 @@ import $ from "jquery";
 import {$host} from "../../http";
 import {baseUrl} from "../baseRoute";
 
-export const Visual_part = ({form,setForm, setCreateMaket})=> {
+export const Visual_part = ({form, setForm, createMaket, setCreateMaket})=> {
 
     const {token} = useContext(AuthContext)
     const {request, loading} = useHttp()
@@ -48,9 +48,9 @@ export const Visual_part = ({form,setForm, setCreateMaket})=> {
 
     const addLayouthandler = async () => {
         try {
-            const data = await request('/api/layout/', 'POST', {...form}, {
-                Authorization : `Bearer ${token}`
-            })
+            // const data = await request('/api/layout/', 'POST', {...form}, {
+            //     Authorization : `Bearer ${token}`
+            // })
             setCreateMaket(true);
         }
         catch (e) {}

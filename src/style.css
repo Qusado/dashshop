@@ -115,7 +115,7 @@ body{
 
 .sidenav li:hover a:not(.closebtn) {
     color: #6E6CD9;
-    font-family: "Montserrat SemiBold";
+    font-weight: bold;
 }
 
 .sidenav li a:not(.closebtn) {
@@ -169,13 +169,13 @@ body{
 .sidenav2 {
     z-index: 3;
     height: 0;
-    width: 5%;
     position: absolute;
     top: 0;
     left: 0;
-    margin-left: 0.1%;
     background-color: #6E6CD9;
     opacity: 1;
+    width: 5%;
+    margin-left: 0.1%;
     overflow-y: hidden;
     transition: 0.5s;
     border-radius: 20px;
@@ -183,7 +183,7 @@ body{
 
 .sidenav2 li:hover a:not(.closebtn2) {
     color: #6E6CD9;
-    font-family: "Montserrat SemiBold";
+    font-weight: bold;
 }
 
 .sidenav2 li a:not(.closebtn2) {
@@ -227,6 +227,7 @@ body{
     color: grey;
     padding: 7px 10px 7px;
     font-size: 0.7vw;
+
 }
 
 #exTab3 a.active {
@@ -235,9 +236,11 @@ body{
     text-decoration: none;
     color: white;
     background-color: #6E6CD9;
-    font-family: "Montserrat SemiBold";
+  font-weight: bold;
     box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
 }
+
+
 
 /*tab_menu*/
 /*filter1*/
@@ -271,9 +274,7 @@ body{
 }
 
 
-.full_form select{
-    font-size: 0.6vw;
-}
+
 
 /*filter*/
 /*filter2*/
@@ -286,16 +287,6 @@ body{
     box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.5);
     height: 7%;
     width: 98%;
-}
-.z-filter2_2 {
-     background: #6e6cd9;
-     background: rgba(110,108,217, 0.4);
-     box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.5);
-     height: 95%;
-     width: 99%;
- }
-.z-filter2_2 select{
-    font-size: 0.6vw;
 }
 
 .z-filter2 select{
@@ -390,13 +381,7 @@ padding-top: 10%;
     background-color: rgba(110, 108, 217, 1);
     overflow-x: hidden;
 }
-#fil{
-    left: 0;
-    bottom: 0;
-    position: absolute;
-    margin-bottom: 15%;
-    width: 100%;
-}
+
 
 .closeHoverFil {
     text-decoration: none;
@@ -487,35 +472,9 @@ padding-top: 10%;
 
 .num_kpi {
     font-size: 1.1vw;
-    font-family: "Montserrat SemiBold" ;
-}
+    font-weight: bold}
 
 /*full version*/
-.p_card_full {
-    padding-right: 19%;
-}
-
-.p_card_full .card {
-    background-color: rgba(110, 108, 217, 0.93);
-    color: white;
-    border: none;
-    margin-bottom: 3%;
-}
-
-.p_card_full .green_kpi {
-    color: darkgreen;
-    font-size: 80%;
-}
-
-.p_card_full .red_kpi {
-    color: darkred;
-    font-size: 80%;
-}
-
-.p_card_full .title_kpi {
-    font-size: 90%;
-}
-
 .p_card_full_s .title_kpi {
     font-size: 100%;
 }
@@ -585,7 +544,7 @@ padding-top: 10%;
 
 .num_kpi2 {
     font-size: 1.1vw;
-    font-family: "Montserrat SemiBold";
+    font-weight: bold;
 }
 
 /*kpi2*/
@@ -622,62 +581,8 @@ padding-top: 10%;
 
 .num_kpi3 {
     font-size: 1.05vw;
-    font-family: "Montserrat SemiBold";
+   font-weight: bold;
 }
-
-.p_card3_full .card {
-    background-color: rgba(110, 108, 217, 0.93);
-    color: white;
-    border: none;
-    margin-bottom: 3%;
-}
-
-.p_card3_full .green_kpi3 {
-    color: darkgreen;
-    font-size: 0.8vw;
-}
-
-.p_card3_full .red_kpi3 {
-    color: darkred;
-    font-size: 0.8vw;
-}
-
-.p_card3_full .title_kpi3 {
-    font-size: 1vw;
-}
-
-.p_card3_full .num_kpi3 {
-    font-size: 1.5vw;
-    font-family: "Montserrat SemiBold";
-}
-
-
-.p_card3_full_s .card {
-    background-color: rgba(110, 108, 217, 0.93);
-    color: white;
-    border: none;
-    margin-bottom: 3%;
-}
-.p_card3_full_s .green_kpi3 {
-    color: darkgreen;
-    font-size: 1vw;
-}
-
-.p_card3_full_s .red_kpi3 {
-    color: darkred;
-    font-size: 1vw;
-}
-
-.p_card3_full_s .title_kpi3 {
-    font-size: 1.1vw;
-}
-
-.p_card3_full_s .num_kpi3 {
-    font-size: 1.55vw;
-    font-family: "Montserrat SemiBold";
-}
-
-
 
 
 
@@ -701,6 +606,7 @@ label {
     height: 95%;
     width: 65%;
     margin-left: 20%;
+
 }
 
 .nav2 {
@@ -866,7 +772,7 @@ label {
 }
 
 .titletext a {
-    font-family: "Montserrat Medium";
+    font-weight: bold;
 }
 
 #logomenu{
@@ -895,7 +801,7 @@ ul.boarder {
 }
 
 .titletext.active {
-    font-family: "Montserrat SemiBold";
+    font-weight: bold;
     color: #6E6CD9;
     background-color: #e8e8e8;
     border-radius: 10px;
@@ -906,8 +812,14 @@ ul.boarder {
     height: 0;
 }
 
+.maket{
+    /*border: 2px solid #212529;*/
+    height: 60vh;
+}
+
 #maket{
-    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+    /*box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;*/
+    /*border: 2px solid #212529;*/
     height: 60vh;
 overflow-y: auto;
 overflow-x: hidden;
@@ -1388,7 +1300,7 @@ input.previous{
     /*background-color: white;*/
     background-color:#F8F9FA;
     color: white;
-    font-family: "Montserrat Medium";
+    font-weight: bold;
     border: white 0px;
     padding: 10px 16px;
 }
