@@ -1,4 +1,5 @@
 {
+  "homepage": "https://qusado.github.io/dashshop/",
   "name": "client",
   "version": "0.1.0",
   "private": true,
@@ -56,7 +57,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://qusado.ru",
   "browserslist": {
     "production": [
       ">0.2%",
