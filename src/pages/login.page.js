@@ -28,7 +28,7 @@ export const LoginPage = () => {
         setForm({...form, [event.target.name]: event.target.value })
     }
 
-    const registerhandler = async () => {
+    const registerHandler = async () => {
         try {
             const fetched = await $host.post(`/api/users/login`, {...form})
                 .catch(function (error) {
@@ -89,7 +89,7 @@ export const LoginPage = () => {
                         </div>
                         <button
                             className=" btn btn-light m-4"
-                            onClick={registerhandler}
+                            onClick={registerHandler}
                             disabled={loading}>
                             LogIn
                         </button>
