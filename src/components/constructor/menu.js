@@ -36,9 +36,6 @@ export const Menu = ({form, setForm}) =>{
     });
     const [modalViewExpActive, setModalViewExpActive] = useState(false);
 
-    if(document.getElementById('mother_id')) {
-        console.log(document.getElementById('mother_id').firstElementChild);
-    }
 
     $(".praon30").on("click",function() {
         $(".praon30").removeClass('current_choise');
