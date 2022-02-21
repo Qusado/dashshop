@@ -1,6 +1,6 @@
 import React from "react";
 import {MakeLayoutFunction} from "./makeLayoutFunction";
-import {PDF_modal} from "./modal_pdf/PDF_modal";
+import {KPI_modal} from "./modal_kpi/KPI_modal";
 import '../construct.css';
 import $ from "jquery";
 import {baseUrl} from "./baseRoute";

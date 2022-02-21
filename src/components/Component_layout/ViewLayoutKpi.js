@@ -5,15 +5,31 @@ import {Kpi_01} from "../kpi/kpi_0.1";
 import {Kpi_02} from "../kpi/kpi_0.2";
 import {Kpi_03} from "../kpi/kpi_0.3";
 
-export const ViewLayoutKpi =({current_kpi})=> {
+export const ViewLayoutKpi =({form, setForm, current_kpi, current_kpi_panel, setCurrent_kpi_panel})=> {
     const kpi_id = current_kpi.kpi_id;
     const {token} = useContext(AuthContext)
     const {request, loading} = useHttp()
+    const [modalViewKPiActive, setModalViewKPIActive] = useState(false);
     return(
         <div>
-            {kpi_id==1 && <Kpi_01/>}
-            {kpi_id==2 && <Kpi_02/>}
-            {kpi_id==3 && <Kpi_03/>}
+            {kpi_id==1 && <Kpi_01 form={form}
+                                  setForm={setForm}
+                                  kpi_active={modalViewKPiActive}
+                                  setKPI_active={setModalViewKPIActive}
+                                  current_kpi_panel={current_kpi_panel}
+                                  setCurrent_kpi_panel={setCurrent_kpi_panel}/>}
+            {kpi_id==2 && <Kpi_02 form={form}
+                                  setForm={setForm}
+                                  kpi_active={modalViewKPiActive}
+                                  setKPI_active={setModalViewKPIActive}
+                                  current_kpi_panel={current_kpi_panel}
+                                  setCurrent_kpi_panel={setCurrent_kpi_panel}/>}
+            {kpi_id==3 && <Kpi_03 form={form}
+                                  setForm={setForm}
+                                  kpi_active={modalViewKPiActive}
+                                  setKPI_active={setModalViewKPIActive}
+                                  current_kpi_panel={current_kpi_panel}
+                                  setCurrent_kpi_panel={setCurrent_kpi_panel}/>}
 
         </div>
     );

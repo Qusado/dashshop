@@ -53,4 +53,5 @@ img{
     padding-bottom: 5px;
     height: 93%;
     width: 100%;
+    overflow-y: auto;
 }

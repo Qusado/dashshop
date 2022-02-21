@@ -36,6 +36,10 @@ export const Menu = ({form, setForm}) =>{
     });
     const [modalViewExpActive, setModalViewExpActive] = useState(false);
 
+    if(document.getElementById('mother_id')) {
+        console.log(document.getElementById('mother_id').firstElementChild);
+    }
+
     $(".praon30").on("click",function() {
         $(".praon30").removeClass('current_choise');
         $(this).addClass('current_choise');
@@ -82,9 +86,9 @@ export const Menu = ({form, setForm}) =>{
                         </div>
                     </div>
                 </div>
-                <div className="col-2 right_part" style={{ padding: '0px'}}>
+                <div className="col-2 right_part m-0" style={{ padding: '0px'}}>
                     <div className="h-100 position-relative">
-                        <div className="praon29">
+                        <div className="praon29" id="mother_id">
                             { menus && menus.map((menu, index) => {
                                 return(
                                     <>

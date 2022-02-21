@@ -29,7 +29,18 @@ export const Fields_2 = () => {
         g5_title: '',
         g6: null,
         g6_title: '',
+        kpi_panel_id: 0
     });
+
+    const [current_kpi_panel, setCurrent_kpi_panel] = useState([
+        {id:false, title:"", fact:"", plan:"", per_dev: false, num_dev:false, graph:""},
+        {id:false, title:"", fact:"", plan:"", per_dev: false, num_dev:false, graph:""},
+        {id:false, title:"", fact:"", plan:"", per_dev: false, num_dev:false, graph:""},
+        {id: false, title:"", fact:"", plan:"", per_dev: false, num_dev:false, graph:""},
+        {id: false, title:"", fact:"", plan:"", per_dev: false, num_dev:false, graph:""},
+        {id: false, title:"", fact:"", plan:"", per_dev: false, num_dev:false, graph:""}
+    ]);
+
     const [createMaket, setCreateMaket] = useState(false);
     const [updateMaket, setUpdateMaket] = useState(false);
     $(document).ready(function(){
@@ -76,10 +87,15 @@ export const Fields_2 = () => {
             <form id="msform">
                 <Menu form={form} setForm={setForm}/>
                 <Filter form={form} setForm={setForm} />
-                <KPI form={form} setForm={setForm}/>
+                <KPI form={form} setForm={setForm}
+                     current_kpi_panel={current_kpi_panel}
+                     setCurrent_kpi_panel={setCurrent_kpi_panel}/>
                 <Report form={form} setForm={setForm}/>
                 <Visual_part form={form} setForm={setForm} createMaket={createMaket} setCreateMaket={setCreateMaket}/>
-                <Lay form={form} setForm={setForm} createMaket={createMaket}/>
+                <Lay form={form} setForm={setForm}
+                     createMaket={createMaket}
+                     current_kpi_panel={current_kpi_panel}
+                     setCurrent_kpi_panel={setCurrent_kpi_panel}/>
                 <ul id="progressbar" className="fixed-bottom">
                     <li className="active" id="menu"><h6>Меню</h6></li>
                     <li id="filter"><h6>Фильтр</h6></li>

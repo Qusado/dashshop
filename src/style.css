@@ -1340,3 +1340,22 @@ input[type=radio]:checked + label>img {
     height: 200px;
     object-fit: contain;
 }
+
+
+.modal_card .card:hover{
+    transform: scale(1.05);
+}
+.overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    display: none;
+    height: 100%;
+    width: inherit;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    border-radius: 5px;
+}
+.modal_card .card:hover .overlay{
+    display: block;
+}

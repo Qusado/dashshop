@@ -9,7 +9,7 @@ import {View_maket} from "../View_maket";
 import {Lol} from "../lol";
 import {baseUrl} from "../baseRoute";
 
-export const Lay = ({form, setForm, createMaket}) => {
+export const Lay = ({form, setForm, createMaket, current_kpi_panel, setCurrent_kpi_panel}) => {
 
     const {token} = useContext(AuthContext)
     const {request, loading} = useHttp()
@@ -27,6 +27,9 @@ export const Lay = ({form, setForm, createMaket}) => {
         {id:5, id_g:'', title:"", img:'', desc:''},
         {id:6, id_g:'', title:"", img:'', desc:''}
     ])
+    const [cards, setCards] = useState([])
+
+
 
     const getMenu = useCallback(async ()=>{
         try{
@@ -122,15 +125,11 @@ export const Lay = ({form, setForm, createMaket}) => {
                 const c = res.data;
                 if(c!=="no graphs"){
                     setCharts(c);
-                }else{
-
-                }
-
+                }else{}
             })
-        } catch (e){
-
-        }
+        } catch (e){}
     }, [token, form, request ]);
+
 
     useEffect( () =>{
         getMenu()
@@ -178,6 +177,15 @@ export const Lay = ({form, setForm, createMaket}) => {
         }
     }
 
+    if(current_kpi_panel){
+        cards.splice(0, cards.length);
+        for(let a = 0; a < current_kpi_panel.length; a++){
+            if(current_kpi_panel[a].id===true){
+                cards.push(current_kpi_panel[a]);
+            }
+        }
+    }
+
     function emailHandler(event) {
         document.getElementById("comment_email").value = event.target.value;
     }
@@ -211,7 +219,7 @@ export const Lay = ({form, setForm, createMaket}) => {
                     <div className="row justify-content-center">
                         <div className="col-8" style={{marginRight:'20px', marginBottom:'20vh'}}>
 
-                            {form.menu_id!==0 && form.kpi_id!==0 && form.filter_id!==0 && form.visual_id!==0 && form.report_id!==0 && createMaket===true &&
+                            {form.menu_id!==0 && form.kpi_id!==0 && form.filter_id!==0 && form.visual_id!==0 && form.report_id!==0 &&
                                 <PDFExport paperSize="auto" margin={20} fileName={`Report for ${new Date().getFullYear()}`}>
                                     <div ref={box}>
                                         <div className="row px-4">
@@ -297,6 +305,28 @@ export const Lay = ({form, setForm, createMaket}) => {
                                                 </div>
                                                 :
                                                 <div className="h6 mt-1">Графики не указаны</div>
+                                            }
+                                        </div>
+                                        <div className="row px-4">
+                                            <h6 className="mt-3"><strong>Показатели</strong></h6>
+                                            {cards.length>=1 ? cards.map(card =>
+                                                <div className="col-6 mb-2"
+                                                     style={{paddingLeft: "20px", paddingRight: "1px"}}>
+                                                    <div className="card p-2" style={{backgroundColor: '#E9ECEF'}}>
+                                                        <div className="text-center mb-0"><strong>{card.title}</strong></div>
+                                                        <div className="text-center p-0 mb-0" style={{fontSize: "1.5rem"}}><strong>{card.fact}</strong></div>
+                                                        <div className="text-center p-0 mb-0"><p className="fw-light mb-0">{card.plan}</p></div>
+                                                        <div className="text-center mb-0">{card.per_dev && <span>&#8679; %</span>}{card.num_dev && <span>&#8679; $</span>}</div>
+                                                        <div className="text-center p-0"><p className="fw-light">{card.graph}</p></div>
+
+                                                    </div>
+                                                </div>
+
+                                                )
+
+
+                                                :
+                                                <div className="h6 mt-1">Показатели не указаны</div>
                                             }
                                         </div>
                                         <hr className="k-hr"/>

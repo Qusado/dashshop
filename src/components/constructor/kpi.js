@@ -9,10 +9,11 @@ import {ViewKPIDiscript} from "../Component_description/ViewKPIDiscript";
 import {ViewExampleKPI} from "../Component_example/ViewExampleKPI";
 import {$host} from "../../http";
 import {baseUrl} from "../baseRoute";
+import {KPI_modal} from "../modal_kpi/KPI_modal";
 
 
 
-export const KPI = ({form ,setForm}) =>{
+export const KPI = ({form ,setForm, current_kpi_panel, setCurrent_kpi_panel}) =>{
     const {token} = useContext(AuthContext)
     const {request, loading} = useHttp()
     const [kpis, setKpis] = useState()
@@ -35,6 +36,16 @@ export const KPI = ({form ,setForm}) =>{
         kpi_id: '', title:''
     }) ;
     const [modalViewExpActive, setModalViewExpActive] = useState(false);
+
+
+    // const [current_kpi_panel, setCurrent_kpi_panel] = useState([
+    //     {id:1, title:"Название", fact:"факт", plan:"план", per_dev: true, num_dev:true, graph:"zdvdfv"},
+    //     {id:2, title:"Название", fact:"факт", plan:"план", per_dev: false, num_dev:true, graph:"vsvve"},
+    //     {id:3, title:"Название", fact:"факт", plan:"план", per_dev: true, num_dev:true, graph:"wrvwrvwv"},
+    //     {id:4, title:"Название", fact:"факт", plan:"план", per_dev: true, num_dev:true, graph:"wrvwrv"},
+    //     {id:5, title:"Название", fact:"факт", plan:"план", per_dev: false, num_dev:false, graph:"wrvvrw"},
+    //     {id:6, title:"Название", fact:"факт", plan:"план", per_dev: false, num_dev:false, graph:"wrwrgr"}
+    // ]);
 
     $(".praon30").on("click",function() {
         $(".praon30").removeClass('current_choise');
@@ -67,7 +78,12 @@ export const KPI = ({form ,setForm}) =>{
                                 <div id="view_board" className="view_board mb-2 px-0 col-12">
                                     <div className="box">
                                         <div id="m-6" className="Hide">
-                                            <ViewLayoutKpi current_kpi={current_kpi}/>
+                                            <ViewLayoutKpi form={form}
+                                                           setForm={setForm}
+                                                           current_kpi={current_kpi}
+                                                           current_kpi_panel={current_kpi_panel}
+                                                           setCurrent_kpi_panel={setCurrent_kpi_panel}/>
+
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +103,7 @@ export const KPI = ({form ,setForm}) =>{
                         </div>
                     </div>
                 </div>
-                <div className="col-2 right_part" style={{padding: '0px'}}>
+                <div className="col-2 right_part m-0" style={{padding: '0px'}}>
                     <div className="h-100 position-relative">
                         <div className="praon29">
                             {kpis && kpis.map((kpi, index) => {

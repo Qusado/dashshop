@@ -1,6 +1,6 @@
 import React from "react";
 import {MakeLayoutFunction} from "./makeLayoutFunction";
-import {PDF_modal} from "./modal_pdf/PDF_modal";
+import {KPI_modal} from "./modal_kpi/KPI_modal";
 import '../construct.css';
 import $ from "jquery";
 import {baseUrl} from "./baseRoute";
@@ -8,20 +8,10 @@ import {generatePath} from "react-router";
 
 export const View_maket = ({form}) =>{
 
-    function createHoverImage() {
-        console.log("zdvxb");
-        document.querySelectorAll("data-hover-src").forEach((img) => {
-            console.log("thfh",img);
-            const src = img.getAttribute('src');
-            const srcH = img.getAttribute('data-hover-src');
-            img.parentElement.parentElement.addEventListener('mouseover', () => {img.src = srcH;})
-            img.parentElement.parentElement.addEventListener('mouseout', () => {img.src = src;})
-        });
-    }
-
 
 
     function ChartBack(background){
+        console.log("xtcyhvhbkjnlm;l")
         document.getElementById("maket").style.backgroundImage = background;
         document.getElementById("maket").style.backgroundSize = "100% 100%";
         document.getElementById("maket").style.backgroundRepeat = "no-repeat";
@@ -34,20 +24,15 @@ export const View_maket = ({form}) =>{
     }
 
     function openHoverFil() {
-        console.log("vfsdzbshz");
         if(document.getElementById("hoverFilter_c"))
         {
             document.getElementById("hoverFilter_c").style.width = "25%";
-            // document.getElementById("hoverFilter_c").style.visibility = "true";
-
         }
     }
     function closeHoverFil() {
         if(document.getElementById("hoverFilter_c") )
         {
             document.getElementById("hoverFilter_c").style.width = "0%";
-            // document.getElementById("hoverFilter_c").style.visibility  = 'false';
-
         }
 
     }
@@ -55,16 +40,12 @@ export const View_maket = ({form}) =>{
         if(document.getElementById("hoverFilter_r") )
         {
             document.getElementById("hoverFilter_r").style.width = "25%";
-            // document.getElementById("hoverFilter_c").style.visibility = "true";
-
         }
     }
     function closeHoverFilR() {
         if(document.getElementById("hoverFilter_r") )
         {
             document.getElementById("hoverFilter_r").style.width = "0%";
-            // document.getElementById("hoverFilter_c").style.visibility  = 'false';
-
         }
 
     }
@@ -72,16 +53,12 @@ export const View_maket = ({form}) =>{
         if(document.getElementById("hoverMenu") )
         {
             document.getElementById("hoverMenu").style.width = "15%";
-            // document.getElementById("hoverFilter_c").style.visibility = "true";
-
         }
     }
     function closeMenu() {
         if(document.getElementById("hoverMenu") )
         {
             document.getElementById("hoverMenu").style.width = "0%";
-            // document.getElementById("hoverFilter_c").style.visibility  = 'false';
-
         }
 
     }
@@ -90,8 +67,6 @@ export const View_maket = ({form}) =>{
         {
             document.getElementById("hoverMenu_short").style.height = "70%";
             document.getElementById("hoverMenu_short").style.width = "5%";
-            // document.getElementById("hoverFilter_c").style.visibility = "true";
-
         }
     }
     function closeMenuShort() {
@@ -99,8 +74,6 @@ export const View_maket = ({form}) =>{
         {
             document.getElementById("hoverMenu_short").style.height = "0%";
             document.getElementById("hoverMenu_short").style.width = "0%";
-
-
         }
 
     }
@@ -109,31 +82,31 @@ export const View_maket = ({form}) =>{
     var code_menu_1_full_screen = '<div class="m_1_fs">\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Layout.svg" data-hover-src="images/icons/Layout_l.svg"/>\
+                                        <img id="img_c" src="/icons/Layout.svg" data-hover-src="/icons/Layout_l.svg"/>\
                                         <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Chip.svg" data-hover-src="images/icons/Chip_l.svg"/>\
+                                        <img id="img_c" src="/icons/Chip.svg" data-hover-src="/icons/Chip_l.svg"/>\
                                         <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Cart.svg" data-hover-src="images/icons/Cart_l.svg"/>\
+                                        <img id="img_c" src="/icons/Cart.svg" data-hover-src="/icons/Cart_l.svg"/>\
                                         <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Bag.svg" data-hover-src="images/icons/Bag_l.svg"/>\
+                                        <img id="img_c" src="/icons/Bag.svg" data-hover-src="/icons/Bag_l.svg"/>\
                                         <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Map.svg" data-hover-src="images/icons/Map_l.svg"/>\
+                                        <img id="img_c" src="/icons/Map.svg" data-hover-src="/icons/Map_l.svg"/>\
                                         <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                     </div>\
                                 </div>\
@@ -530,31 +503,31 @@ export const View_maket = ({form}) =>{
                                     <div class="col-12 align-self-start p-0">\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="img_c" src="images/icons/Layout.svg" data-hover-src="images/icons/Layout_l.svg"/>\
+                                                <img id="img_c" src="/icons/Layout.svg" data-hover-src="/icons/Layout_l.svg"/>\
                                                 <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                             </div>\
                                         </div>\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="img_c" src="images/icons/Chip.svg" data-hover-src="images/icons/Chip_l.svg"/>\
+                                                <img id="img_c" src="/icons/Chip.svg" data-hover-src="/icons/Chip_l.svg"/>\
                                                 <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                             </div>\
                                         </div>\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="img_c" src="images/icons/Cart.svg" data-hover-src="images/icons/Cart_l.svg"/>\
+                                                <img id="img_c" src="/icons/Cart.svg" data-hover-src="/icons/Cart_l.svg"/>\
                                                 <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                             </div>\
                                         </div>\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="img_c" src="images/icons/Bag.svg" data-hover-src="images/icons/Bag_l.svg"/>\
+                                                <img id="img_c" src="/icons/Bag.svg" data-hover-src="/icons/Bag_l.svg"/>\
                                                 <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                             </div>\
                                         </div>\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="img_c" src="images/icons/Map.svg" data-hover-src="images/icons/Map_l.svg"/>\
+                                                <img id="img_c" src="/icons/Map.svg" data-hover-src="/icons/Map_l.svg"/>\
                                                 <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                             </div>\
                                         </div>\
@@ -562,7 +535,7 @@ export const View_maket = ({form}) =>{
                                     <div class="col-12 align-self-end mb-4 p-0" id="fil">\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="img" src="images/icons/Configure_w.svg" data-hover-src="images/icons/Configure_l.svg"/>\
+                                                <img id="img" src="/icons/Configure_w.svg" data-hover-src="/icons/Configure_l.svg"/>\
                                                 <a href="#" class="nav-link textchengecolor_c text-decoration-none">Filter</a>\
                                             </div>\
                                         </div>\
@@ -591,34 +564,34 @@ export const View_maket = ({form}) =>{
                                     <div class="col-12 align-self-start p-0">\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="imgm_c" src="images/icons/Layout.svg" data-hover-src="images/icons/Layout_l.svg"/>\
+                                                <img id="imgm_c" src="/icons/Layout.svg" data-hover-src="/icons/Layout_l.svg"/>\
                                             </div>\
                                         </div>\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="imgm_c" src="images/icons/Chip.svg" data-hover-src="images/icons/Chip_l.svg"/>\
+                                                <img id="imgm_c" src="/icons/Chip.svg" data-hover-src="/icons/Chip_l.svg"/>\
                                             </div>\
                                         </div>\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="imgm_c" src="images/icons/Cart.svg" data-hover-src="images/icons/Cart_l.svg"/>\
+                                                <img id="imgm_c" src="/icons/Cart.svg" data-hover-src="/icons/Cart_l.svg"/>\
                                             </div>\
                                         </div>\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="imgm_c" src="images/icons/Bag.svg" data-hover-src="images/icons/Bag_l.svg"/>\
+                                                <img id="imgm_c" src="/icons/Bag.svg" data-hover-src="/icons/Bag_l.svg"/>\
                                             </div>\
                                         </div>\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="imgm_c" src="images/icons/Map.svg" data-hover-src="images/icons/Map_l.svg"/>\
+                                                <img id="imgm_c" src="/icons/Map.svg" data-hover-src="/icons/Map_l.svg"/>\
                                             </div>\
                                         </div>\
                                     </div>\
                                     <div class="col-12 align-self-end mb-4 p-0" id="fil">\
                                         <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                             <div class="d-flex align-items-center justify-content-center px-2">\
-                                                <img id="imgm_c" src="images/icons/Configure_w.svg" data-hover-src="images/icons/Configure_l.svg"/>\
+                                                <img id="imgm_c" src="/icons/Configure_w.svg" data-hover-src="/icons/Configure_l.svg"/>\
                                             </div>\
                                         </div>\
                                     </div>\
@@ -665,38 +638,38 @@ export const View_maket = ({form}) =>{
                     <a href="javascript:void(0)" id="closeHoverMenu" class="closebtn">&times;</a>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Layout.svg" data-hover-src="images/icons/Layout_l.svg"/>\
+                                        <img id="img_c" src="/icons/Layout.svg" data-hover-src="/icons/Layout_l.svg"/>\
                                         <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Chip.svg" data-hover-src="images/icons/Chip_l.svg"/>\
+                                        <img id="img_c" src="/icons/Chip.svg" data-hover-src="/icons/Chip_l.svg"/>\
                                         <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Cart.svg" data-hover-src="images/icons/Cart_l.svg"/>\
+                                        <img id="img_c" src="/icons/Cart.svg" data-hover-src="/icons/Cart_l.svg"/>\
                                         <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Bag.svg" data-hover-src="images/icons/Bag_l.svg"/>\
+                                        <img id="img_c" src="/icons/Bag.svg" data-hover-src="/icons/Bag_l.svg"/>\
                                         <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Map.svg" data-hover-src="images/icons/Map_l.svg"/>\
+                                        <img id="img_c" src="/icons/Map.svg" data-hover-src="/icons/Map_l.svg"/>\
                                         <a href="#" class="nav-link textchengecolor_c text-decoration-none">Page1</a>\
                                     </div>\
                                 </div>\
                             </div>\
                             <div class="col-1 mx-0 mt-1 align-self-center" id="menu">\
                                 <div style="width: 80%; margin-right: auto; margin-left: auto">\
-                                    <img class="my-auto" id="" style="width: 40px" src="images/icons/130.png"/>\
+                                    <img class="my-auto" id="" style="width: 40px" src="/icons/130.png"/>\
                                 </div>\
                             </div>';
 
@@ -704,38 +677,38 @@ export const View_maket = ({form}) =>{
                         <a href="javascript:void(0)" id="closeHoverMenu_short" class="closebtn">&times;</a>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Layout.svg" data-hover-src="images/icons/Layout_l.svg"/>\
+                                        <img id="img_c" src="/icons/Layout.svg" data-hover-src="/icons/Layout_l.svg"/>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Chip.svg" data-hover-src="images/icons/Chip_l.svg"/>\
+                                        <img id="img_c" src="/icons/Chip.svg" data-hover-src="/icons/Chip_l.svg"/>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Cart.svg" data-hover-src="images/icons/Cart_l.svg"/>\
+                                        <img id="img_c" src="/icons/Cart.svg" data-hover-src="/icons/Cart_l.svg"/>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Bag.svg" data-hover-src="images/icons/Bag_l.svg"/>\
+                                        <img id="img_c" src="/icons/Bag.svg" data-hover-src="/icons/Bag_l.svg"/>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant_c py-2" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="img_c" src="images/icons/Map.svg" data-hover-src="images/icons/Map_l.svg"/>\
+                                        <img id="img_c" src="/icons/Map.svg" data-hover-src="/icons/Map_l.svg"/>\
                                     </div>\
                                 </div>\
                             </div>\
                             <div class="col-1 mx-0 mt-2 text-center" id="menu_short">\
                                 <div style="width: 80%; margin-right: auto; margin-left: auto">\
-                                    <img class="my-auto" id="" style="width: 30px" src="images/icons/130.png"/>\
+                                    <img class="my-auto" id="" style="width: 30px" src="/icons/130.png"/>\
                                 </div>\
                             </div>';
 
     var code_filter_3_menu_2 =' <div class="col-1 py-0 px-2 filter_button" id="filter_button">\
-                                    <img id="logomenu_c" src="images/icons/Configure_l.svg" data-hover-src="images/icons/Configure_w.svg"/>\
+                                    <img id="logomenu_c" src="/icons/Configure_l.svg" data-hover-src="/icons/Configure_w.svg"/>\
                                 </div>\
                                 <ul class="nav justify-content-center boarder mb-0">\
                                     <li class="nav-item">\
@@ -780,8 +753,8 @@ export const View_maket = ({form}) =>{
                                         </li>\
                                     </ul>\
                                     <div class="col-2 mx-0">\
-                                            <div id="filter_button" style="width: 80%; margin-right: 0; margin-left: auto" class="text-center" onmouseleave="this.children[0].src=\'images/icons/Configure_l.svg\'" onmouseover="this.children[0].src=\'images/icons/Configure_w.svg\'">\
-                                                <img class="my-auto" id="" style="width: 20px" src="images/icons/Configure_l.svg"/>\
+                                            <div id="filter_button" style="width: 80%; margin-right: 0; margin-left: auto" class="text-center" onmouseleave="this.children[0].src=\'/icons/Configure_l.svg\'" onmouseover="this.children[0].src=\'/icons/Configure_w.svg\'">\
+                                                <img class="my-auto" id="" style="width: 20px" src="/icons/Configure_l.svg"/>\
                                                 <span>Filter</spanstyle>\
                                             </div>\
                                     </div>\
@@ -808,32 +781,32 @@ export const View_maket = ({form}) =>{
     var code_menu_6 = ' <div class="d-flex flex-column bd-highlight nav1">\
                                 <div class="nav-item hovervariant py-3 mt-3" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="imgm" src="images/icons/Layout.svg" data-hover-src="images/icons/Layout_l.svg"/>\
+                                        <img id="imgm" src="/icons/Layout.svg" data-hover-src="/icons/Layout_l.svg"/>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant py-3" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="imgm" src="images/icons/Chip.svg" data-hover-src="images/icons/Chip_l.svg"/>\
+                                        <img id="imgm" src="/icons/Chip.svg" data-hover-src="/icons/Chip_l.svg"/>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant py-3" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="imgm" src="images/icons/Cart.svg" data-hover-src="images/icons/Cart_l.svg"/>\
+                                        <img id="imgm" src="/icons/Cart.svg" data-hover-src="/icons/Cart_l.svg"/>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant py-3" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="imgm" src="images/icons/Bag.svg" data-hover-src="images/icons/Bag_l.svg"/>\
+                                        <img id="imgm" src="/icons/Bag.svg" data-hover-src="/icons/Bag_l.svg"/>\
                                     </div>\
                                 </div>\
                                 <div class="nav-item hovervariant py-3" id="hovervariant">\
                                     <div class="d-flex align-items-center justify-content-center px-2">\
-                                        <img id="imgm" src="images/icons/Map.svg" data-hover-src="images/icons/Map_l.svg"/>\
+                                        <img id="imgm" src="/icons/Map.svg" data-hover-src="/icons/Map_l.svg"/>\
                                     </div>\
                                 </div>\
                             </div>';
      var code_filter_3_right = '<div class="col-1 py-1 other_filter_button" id="filter_button">\
-                                    <img id="logomenu_c" width="25px" src="images/icons/Configure_l.svg"/>\
+                                    <img id="logomenu_c" width="25px" src="/icons/Configure_l.svg"/>\
                                 </div>\
                                 <div id="hoverFilter_r" class ="row hoverFilter">\
                                     <a href="javascript:void(0)" id="closeHoverFilR" class="col-2 mx-2 px-0 closeHoverFil">\
@@ -854,8 +827,8 @@ export const View_maket = ({form}) =>{
                                     </form>\
                                  </div>';
 
-    var code_filter_3 =     '<div id="filter_button" class="text-center" style="width: 80%; margin-right: 10px; margin-left: auto" onmouseleave="this.children[0].src=\'images/icons/Configure_l.svg\'" onmouseover="this.children[0].src=\'images/icons/Configure_w.svg\'">\
-                                    <img class="my-auto" id="" style="width: 20px" src="images/icons/Configure_l.svg"/>\
+    var code_filter_3 =     '<div id="filter_button" class="text-center" style="width: 80%; margin-right: 10px; margin-left: auto" onmouseleave="this.children[0].src=\'/icons/Configure_l.svg\'" onmouseover="this.children[0].src=\'/icons/Configure_w.svg\'">\
+                                    <img class="my-auto" id="" style="width: 20px" src="/icons/Configure_l.svg"/>\
                                     <span>Filter</spanstyle>\
                              </div>\
                             <div id="hoverFilter_r" class ="row hoverFilter">\
@@ -964,7 +937,8 @@ export const View_maket = ({form}) =>{
             title.style.height = "35px";
 
 
-            if (m === 1) {
+            if (m === 1)
+            {
                 let menu1 = makeDiv(['col-2', 'h-100']);
                 menu1.innerHTML = code_menu_1_full_screen;
                 menu1.style.zIndex = "3";
@@ -982,6 +956,7 @@ export const View_maket = ({form}) =>{
                         kpi1.style.paddingRight = "2.5%";
                         kpi1.style.paddingLeft = "1%";
                         kpi1.style.marginTop = "1%";
+                        kpi1.style.zIndex = '4';
                         other_place_10.appendChild(kpi1);
                         if (v === 1) {
                             let ground = makeBackground('/backs/Frame 84.png');
@@ -1023,7 +998,6 @@ export const View_maket = ({form}) =>{
                             let ground = makeBackground('/backs/Frame 82.png');
                             board.insertBefore(ground, board.firstChild);
                         } else {
-
                             let v3 = document.createElement("div");
                             v3.classList.add('col-10');
                             v3.innerHTML = code_v_3_block;
@@ -1299,9 +1273,10 @@ export const View_maket = ({form}) =>{
                     }
                 }
             }
-            else if (m === 2 || m === 5) {
+            else if (m === 2)
+            {
                 let menux = makeDiv(['col-12', 'row', 'p-0', 'm-0']);
-                menux.innerHTML = eval("code_menu_" + m);
+                menux.innerHTML = code_menu_2;
                 menux.style.zIndex = "3";
                 board.appendChild(menux);
                 board.appendChild(other_place_12);
@@ -1524,12 +1499,12 @@ export const View_maket = ({form}) =>{
                 else if (f === 3)
                 {
                     let fil3 = makeDiv(['col-12', 'p-0', 'm-0']);
-                    fil3.innerHTML = eval("code_filter_3_menu_" + m);
+                    fil3.innerHTML = code_filter_3_menu_2;
                     fil3.style.zIndex = "3";
                     board.removeChild(board.firstChild);
                     board.insertBefore(fil3, board.firstChild);
-                    document.getElementById("filter_button").addEventListener("click", openHoverFilR);
-                    document.getElementById("closeHoverFilR").addEventListener("click", closeHoverFilR);
+                    document.getElementById("filter_button").addEventListener("click", openHoverFil);
+                    document.getElementById("closeHoverFil").addEventListener("click", closeHoverFil);
                     if (k === 1) {
                         let kpi1 = makeDiv(['col-3', 'mt-1']);
                         kpi1.innerHTML = code_kpi_1_full_plus;
@@ -1569,10 +1544,10 @@ export const View_maket = ({form}) =>{
                         other_place_12.style.display = "block";
                         other_place_12.appendChild(kpi2);
                         if (v === 1) {
-                            let ground = makeBackground('/backs/Frame 137.png');
+                            let ground = makeBackground('/backs/Frame 138.png');
                             board.insertBefore(ground, board.firstChild);
                         } else if (v === 2) {
-                            let ground = makeBackground('/backs/Frame 138.png');
+                            let ground = makeBackground('/backs/Frame 137.png');
                             board.insertBefore(ground, board.firstChild);
                         }
                         else {
@@ -1634,7 +1609,344 @@ export const View_maket = ({form}) =>{
 
                 }
             }
-            else if (m === 3) {
+            else if (m === 5)
+            {
+                let menux = makeDiv(['col-12', 'row', 'p-0', 'm-0']);
+                menux.innerHTML = code_menu_5;
+                menux.style.zIndex = "3";
+                board.appendChild(menux);
+                board.appendChild(other_place_12);
+                other_place_12.style.zIndex = "2";
+                if (f === 1) {
+                    let filter1 = makeDiv(['col-2', 'p-0']);
+                    filter1.innerHTML = code_filter_1_full_plus;
+                    other_place_12.appendChild(filter1);
+                    if (k === 1) {
+                        let kpi1 = makeDiv(['col-3']);
+                        kpi1.innerHTML = code_kpi_1_full_plus;
+                        kpi1.style.paddingLeft = "1.5%";
+                        kpi1.style.paddingRight = "7%";
+                        other_place_12.appendChild(kpi1);
+                        if (v === 1) {
+                            let ground = makeBackground('/backs/Frame 118.png');
+                            board.insertBefore(ground, board.firstChild);
+                        }
+                        else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 117.png');
+                            board.insertBefore(ground, board.firstChild);
+                        }
+                        else if(v===3) {
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            menux.appendChild(v3);
+                            menux.childNodes[0].classList.add('col-11');
+                            menux.classList.add('justify-content-between')
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 117.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 118.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 117.png')")
+                                }
+                            )
+                        }
+                    }
+                    else if (k === 2) {
+                        let kpi2 = makeDiv(['col-10']);
+                        kpi2.innerHTML = code_kpi_2_full;
+                        kpi2.style.paddingLeft = "3%";
+                        other_place_12.appendChild(kpi2);
+                        if (v === 1) {
+                            let ground = makeBackground('/backs/Frame 89.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 92.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else {
+
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            menux.appendChild(v3);
+                            menux.childNodes[0].classList.add('col-11');
+                            menux.classList.add('justify-content-between')
+                            // other_place_12.classList.remove('justify-content-end');
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 92.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 92.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 89.png')")
+                                }
+                            )
+                        }
+
+                    }
+                    else if (k === 3) {
+                        let kpi3 = makeDiv(['col-3']);
+                        kpi3.style.paddingLeft = "8.5%";
+                        kpi3.style.paddingRight = "0";
+                        kpi3.innerHTML = code_kpi_1_full_plus;
+                        other_place_12.appendChild(kpi3);
+                        other_place_12.classList.add('justify-content-between');
+                        if (v === 1) {
+                            let ground = makeBackground('/backs/Frame 119.png');
+                            board.insertBefore(ground, board.firstChild);
+                        }
+                        else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 120.png');
+                            board.insertBefore(ground, board.firstChild);
+                        }
+                        else {
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            menux.appendChild(v3);
+                            menux.childNodes[0].classList.add('col-11');
+                            menux.classList.add('justify-content-between')
+                            filter1.classList.remove('mt-1');
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 119.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 119.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 120.png')")
+                                }
+                            )
+                        }
+                    }
+                }
+                else if (f === 2)
+                {
+                    let fil2 = makeDiv(['col-12', 'px-0']);
+                    fil2.innerHTML = code_filter_2_full;
+                    fil2.style.height = "35px";
+                    other_place_12.appendChild(fil2);
+                    if (k === 1) {
+                        let kpi1 = makeDiv(['col-3']);
+                        kpi1.innerHTML = code_kpi_1_full;
+                        kpi1.style.paddingLeft = "0%";
+                        kpi1.style.paddingRight = "7%";
+                        other_place_12.appendChild(kpi1);
+                        if (v === 1) {
+                            let ground = makeBackground('/backs/Frame 107.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 99.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else {
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            menux.appendChild(v3);
+                            menux.childNodes[0].classList.add('col-11');
+                            menux.classList.add('justify-content-between')
+                            fil2.classList.remove('mt-1');
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 99.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 99.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 107.png')")
+                                }
+                            )
+                        }
+                    }
+                    else if (k === 2) {
+                        let kpi2 = makeDiv(['col-12']);
+                        kpi2.innerHTML = code_kpi_2_full_screen;
+                        other_place_12.style.display = "block";
+                        other_place_12.appendChild(kpi2);
+                        if (v === 1) {
+                            let ground = makeBackground('/backs/Frame 135.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 136.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else {
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            menux.appendChild(v3);
+                            menux.childNodes[0].classList.add('col-11');
+                            menux.classList.add('justify-content-between')
+                            fil2.classList.remove('mt-1');
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 135.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 136.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 135.png')")
+                                }
+                            )
+                        }
+
+                    } else if (k === 3) {
+                        let kpi3 = makeDiv(['col-3', 'mt-1']);
+                        kpi3.innerHTML = code_kpi_1_full;
+                        kpi3.style.paddingRight = "0%";
+                        kpi3.style.paddingLeft = "5.5%";
+                        other_place_12.appendChild(kpi3);
+                        other_place_12.classList.add('justify-content-end');
+                        if (v === 1) {
+                            let ground = makeBackground('/backs/Frame 108.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 100.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else {
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            menux.appendChild(v3);
+                            menux.childNodes[0].classList.add('col-11');
+                            menux.classList.add('justify-content-between')
+                            fil2.classList.remove('mt-1');
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 100.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 100.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 108.png')")
+                                }
+                            )
+                        }
+                    }
+
+                }
+                else if (f === 3)
+                {
+                    let fil3 = makeDiv(['col-12', 'p-0', 'm-0']);
+                    fil3.innerHTML = code_filter_3_menu_5;
+                    fil3.style.zIndex = "3";
+                    board.removeChild(board.firstChild);
+                    board.insertBefore(fil3, board.firstChild);
+                    document.getElementById("filter_button").addEventListener("click", openHoverFilR);
+                    document.getElementById("closeHoverFilR").addEventListener("click", closeHoverFilR);
+                    if (k === 1) {
+                        let kpi1 = makeDiv(['col-3', 'mt-1']);
+                        kpi1.innerHTML = code_kpi_1_full_plus;
+                        kpi1.style.paddingRight = "6%";
+                        kpi1.style.paddingLeft = "0.5%";
+                        other_place_12.appendChild(kpi1);
+                        if (v === 1) {
+                            let ground = makeBackground('/backs/Frame 109.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 101.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else {
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            fil3.classList.remove('col-12');
+                            fil3.classList.add('col-11');
+                            board.insertBefore(v3, other_place_12);
+                            fil3.classList.add('justify-content-between')
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 109.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 101.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 109.png')")
+                                }
+                            )
+                        }
+                    }
+                    else if (k === 2) {
+                        let kpi2 = makeDiv(['col-12']);
+                        kpi2.innerHTML = code_kpi_2_full_screen;
+                        other_place_12.style.display = "block";
+                        other_place_12.appendChild(kpi2);
+                        if (v === 1) {
+                            let ground = makeBackground('/backs/Frame 138.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 137.png');
+                            board.insertBefore(ground, board.firstChild);
+                        }
+                        else {
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            fil3.classList.remove('col-12');
+                            fil3.classList.add('col-11');
+                            board.insertBefore(v3, other_place_12);
+                            fil3.classList.add('justify-content-between')
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 138.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 138.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 137.png')")
+                                }
+                            )
+                        }
+
+                    }
+                    else if (k === 3) {
+                        let kpi3 = makeDiv(['col-3']);
+                        kpi3.innerHTML = code_kpi_1_full_plus;
+                        kpi3.style.paddingLeft = "6%";
+                        kpi3.style.paddingRight = "0%";
+                        other_place_12.appendChild(kpi3);
+                        other_place_12.classList.add('justify-content-end');
+                        if (v === 1) {
+                            let ground = makeBackground('/backs/Frame 122.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else if (v === 2) {
+                            let ground = makeBackground('/backs/Frame 121.png');
+                            board.insertBefore(ground, board.firstChild);
+                        } else {
+                            let v3 = makeDiv(['col-1', 'px-0'])
+                            v3.innerHTML = code_v_3_micro;
+                            fil3.classList.remove('col-12');
+                            fil3.classList.add('col-11');
+                            board.insertBefore(v3, other_place_12);
+                            fil3.classList.add('justify-content-between')
+                            document.getElementById("maket").style.backgroundImage = "url('/backs/Frame 121.png')";
+                            document.getElementById("maket").style.backgroundSize = "100%";
+                            document.getElementById("maket").style.backgroundRepeat = "no-repeat";
+
+                            document.getElementById("charts").addEventListener("click", (e)=>{
+                                    ChartBack("url('/backs/Frame 121.png')")
+                                }
+                            )
+                            document.getElementById("tables").addEventListener("click", (e)=>{
+                                    TableBack("url('/backs/Frame 122.png')")
+                                }
+                            )
+                        }
+                    }
+
+                }
+            }
+            else if (m === 3)
+            {
                 let menux = makeDiv(['col-12', 'p-0', 'm-0']);
                 menux.innerHTML = code_menu_3;
                 menux.style.zIndex = "4";
@@ -2302,7 +2614,8 @@ export const View_maket = ({form}) =>{
 
 
             }
-            else if (m === 6) {
+            else if (m === 6)
+            {
                 let menu6 = makeDiv(['col-1', 'p-0', 'm-0', 'h-100']);
                 menu6.innerHTML = code_menu_6;
                 menu6.style.zIndex = "3";
@@ -2671,8 +2984,8 @@ $(document).ready(
     function (){
 
         if(form) {
-              Generate();
-             //Make(form.menu_id, form.filter_id, form.kpi_id, form.visual_id);
+              //Generate();
+             Make(form.menu_id, form.filter_id, form.kpi_id, form.visual_id);
         }
     })
 

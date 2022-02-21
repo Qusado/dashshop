@@ -48,10 +48,13 @@ export const Visual_part = ({form, setForm, createMaket, setCreateMaket})=> {
 
     const addLayouthandler = async () => {
         try {
-            // const data = await request('/api/layout/', 'POST', {...form}, {
-            //     Authorization : `Bearer ${token}`
-            // })
-            setCreateMaket(true);
+            const data = await $host.post(`/api/layout/`,{...form}, {
+                headers:{
+                    authorization:"Bearer "+token,
+                }
+            }).then(res=>{
+                setCreateMaket(true);
+            });
         }
         catch (e) {}
     }
@@ -93,7 +96,7 @@ export const Visual_part = ({form, setForm, createMaket, setCreateMaket})=> {
                         </div>
                     </div>
                 </div>
-                <div className="col-2 right_part" style={{padding: '0px'}}>
+                <div className="col-2 right_part m-0" style={{padding: '0px'}}>
                     <div className="h-100 position-relative">
                         <div className="praon29">
                             {visuals && visuals.map((visual, index) => {

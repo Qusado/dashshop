@@ -48,7 +48,7 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
                       />
                       <button type="button" 
                         id="${draggableElementId}" 
-                        class="remove_graph"
+                        class="remove_graph dropped"
                       >
                                       очистить
                       </button>`);
@@ -82,27 +82,6 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
 
     const SaveHandler = event =>
     {
-        // console.log("save");
-        // console.log(boards);
-        // console.log(form);
-        // setForm({...form, g1: Number(boards[0].items)});
-        // setForm({...form, g1_title: document.getElementById("input1").value});
-        // setForm({...form, g2: Number(boards[1].items)});
-        // setForm({...form, g2_title: document.getElementById("input2").value});
-        // setForm({...form, g3: Number(boards[2].items)});
-        // setForm({...form, g3_title: document.getElementById("input3").value});
-        // setForm({...form, g4: Number(boards[3].items)});
-        // setForm({...form, g4_title: document.getElementById("input4").value});
-        // setForm({...form, g5: Number(boards[4].items)});
-        // setForm({...form, g5_title: document.getElementById("input5").value});
-        //
-        // setForm({...form, g6_title: document.getElementById("input6").value});
-        // setForm(
-        //     {...form, g5: Number(boards[4].items)}, {...form, g6: Number(boards[5].items)}
-        // );
-        //
-        // this.setState(({ count }) => ({ count: count + 1 }));
-
         form.g1 = Number(boards[0].items);
         form.g1_title = document.getElementById("input1").value;
         form.g2 = Number(boards[1].items);
@@ -115,8 +94,6 @@ export const Dd_modal = ({form, setForm, graphs, visual_active, setVisual_active
         form.g5_title = document.getElementById("input5").value;
         form.g6 = Number(boards[5].items);
         form.g6_title = document.getElementById("input6").value;
-        // console.log("лох");
-        // console.log(form);
         setVisual_active(false);
         clearAfterSave();
     }

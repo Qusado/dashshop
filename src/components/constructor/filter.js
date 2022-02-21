@@ -85,7 +85,7 @@ export const Filter = ({form, setForm}) =>{
                         </div>
                     </div>
                 </div>
-                <div className="col-2 right_part" style={{padding: '0px'}}>
+                <div className="col-2 right_part m-0" style={{padding: '0px'}}>
                     <div className="h-100 position-relative">
                         <div className="praon29">
                             {filters && filters.map((filter, index) => {

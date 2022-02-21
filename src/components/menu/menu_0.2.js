@@ -11,7 +11,7 @@ export const Menu_02 = () => {
                            className="d-flex align-items-center justify-content-center px-2  link-dark text-decoration-none"
                            aria-expanded="false">
                             <div className="logo1" style={{width:"2.5em", height:"2.5em"}}></div>
-                            <a href="#" className="nav-link textchengecolor">Page1</a>
+                            <a href="#" className="nav-link textchengecolor text-decoration-none">Page1</a>
                         </a>
                     </div>
                     <div className="nav-item hovervariant py-2">
