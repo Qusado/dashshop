@@ -36,11 +36,17 @@ export const Menu = ({form, setForm}) =>{
     });
     const [modalViewExpActive, setModalViewExpActive] = useState(false);
 
+    if(document.getElementsByClassName("shadow-5-strong")) {
+
+        console.log(document.getElementsByClassName("praon30")[0]);
+    }
+
 
     $(".praon30").on("click",function() {
         $(".praon30").removeClass('current_choise');
         $(this).addClass('current_choise');
     })
+
 
     const Menuhandler = event =>{
         setCurrent({menu_id: event.target.id, title: event.target.getAttribute("data-title")});

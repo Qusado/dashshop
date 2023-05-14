@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import {baseUrl} from "../baseRoute";
 
-export const Filter_01 = () => {
+export const Filter_01 = (filter_active, setFilter_active) => {
 
     return (
         <div className="row position-relative">

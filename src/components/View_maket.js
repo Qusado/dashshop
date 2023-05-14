@@ -11,7 +11,7 @@ export const View_maket = ({form}) =>{
 
 
     function ChartBack(background){
-        console.log("xtcyhvhbkjnlm;l")
+       // console.log("xtcyhvhbkjnlm;l")
         document.getElementById("maket").style.backgroundImage = background;
         document.getElementById("maket").style.backgroundSize = "100% 100%";
         document.getElementById("maket").style.backgroundRepeat = "no-repeat";

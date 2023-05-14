@@ -8,6 +8,7 @@ import {ViewFilterDiscript} from "../Component_description/ViewFilterDiscript";
 import {ViewExampleFilter} from "../Component_example/ViewExampleFilter";
 import {$host} from "../../http";
 import {baseUrl} from "../baseRoute";
+import {Filter_modal} from "../modal_filter/Filter_modal";
 
 
 
@@ -34,7 +35,8 @@ export const Filter = ({form, setForm}) =>{
         filter_id: '', title:''
     }) ;
     const [modalViewExpActive, setModalViewExpActive] = useState(false);
-
+    const [modalViewFilterActive, setModalFilterActive] = useState(false);
+    const [f, setF] = useState([]);
     $(".praon30").on("click",function() {
         $(".praon30").removeClass('current_choise');
         $(this).addClass('current_choise');
@@ -50,6 +52,11 @@ export const Filter = ({form, setForm}) =>{
     useEffect(()=>{
         getFilters()
     }, [getFilters])
+
+    const OpenModal = event => {
+        setModalFilterActive(true);
+    }
+
     return(
         <fieldset>
             <div id="color" className="container-fluid w-100 row p-0 m-0 justify-content-center">
@@ -66,7 +73,11 @@ export const Filter = ({form, setForm}) =>{
                                     <div className="box">
                                         <div id="m-6" className="Hide">
                                             <ViewLayoutFilter current_filter={current_filter}/>
+                                            <input type="button" className="btn" onClick={(e)=>OpenModal(e)} style={{fontFamily: "montserrat", position: "absolute", right:"0px", bottom:"30px", backgroundColor:"#FF5100CC", color:"white"}}
+                                            value="СПИСОК ФИЛЬТРОВ"
+                                            />
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -124,6 +135,7 @@ export const Filter = ({form, setForm}) =>{
                         <input type="button" name="next" id="next" className="next action-button shadow disabled" value="К следующему шагу" disabled/>}
                 </div>
             </div>
+            <Filter_modal filter={f} setFilter={setF} filter_active= {modalViewFilterActive} setFilter_active= {setModalFilterActive} />
         </fieldset>
 
     )

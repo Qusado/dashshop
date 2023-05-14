@@ -13,7 +13,7 @@ export const Kpi_02 = ({form, setForm, kpi_active, setKPI_active, current_kpi_pa
         <div className="position-relative">
             <div className="box_card2">
                 <div className="col-12">
-                    <div className="row p_card2 px-2 modal_card">
+                    <div className="row p_card2 px-2 modal_hor_card">
 
                         <div className="col-md-2 mb-6 px-1">
                             <div className="card">

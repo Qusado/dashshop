@@ -13,11 +13,11 @@ body {
 
 
 .draggable {
-    height: 9rem;
-    width: 9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /*height: 9rem;*/
+    /*width: 9rem;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
     margin: auto;
     cursor: move;
 }
@@ -44,7 +44,7 @@ body {
 
 .fon_maket{
     z-index: 0;
-    height: 500px;
+    height: 450px;
 
 }
 .droppable span {

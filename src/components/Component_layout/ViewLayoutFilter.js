@@ -9,6 +9,8 @@ export const ViewLayoutFilter =({current_filter})=> {
     const filter_id = current_filter.filter_id;
     const {token} = useContext(AuthContext)
     const {request, loading} = useHttp()
+
+
     return(
         <div>
             {filter_id==1 && <Filter_01/>}

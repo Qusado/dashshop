@@ -12,19 +12,19 @@ export const ViewLayoutKpi =({form, setForm, current_kpi, current_kpi_panel, set
     const [modalViewKPiActive, setModalViewKPIActive] = useState(false);
     return(
         <div>
-            {kpi_id==1 && <Kpi_01 form={form}
+            {kpi_id==4 && <Kpi_01 form={form}
                                   setForm={setForm}
                                   kpi_active={modalViewKPiActive}
                                   setKPI_active={setModalViewKPIActive}
                                   current_kpi_panel={current_kpi_panel}
                                   setCurrent_kpi_panel={setCurrent_kpi_panel}/>}
-            {kpi_id==2 && <Kpi_02 form={form}
+            {kpi_id==5 && <Kpi_02 form={form}
                                   setForm={setForm}
                                   kpi_active={modalViewKPiActive}
                                   setKPI_active={setModalViewKPIActive}
                                   current_kpi_panel={current_kpi_panel}
                                   setCurrent_kpi_panel={setCurrent_kpi_panel}/>}
-            {kpi_id==3 && <Kpi_03 form={form}
+            {kpi_id==6 && <Kpi_03 form={form}
                                   setForm={setForm}
                                   kpi_active={modalViewKPiActive}
                                   setKPI_active={setModalViewKPIActive}

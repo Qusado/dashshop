@@ -25,8 +25,8 @@
     background-color: white;
     transform: scale(0.5);
     transition: 0.4s all;
-    height: 84vh;
-    width: 85vw;
+    /*height: 84vh;*/
+    /*width: 85vw;*/
     border-radius: 12px;
 }
 .modal_v__content.active{

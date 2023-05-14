@@ -38,15 +38,6 @@ export const KPI = ({form ,setForm, current_kpi_panel, setCurrent_kpi_panel}) =>
     const [modalViewExpActive, setModalViewExpActive] = useState(false);
 
 
-    // const [current_kpi_panel, setCurrent_kpi_panel] = useState([
-    //     {id:1, title:"Название", fact:"факт", plan:"план", per_dev: true, num_dev:true, graph:"zdvdfv"},
-    //     {id:2, title:"Название", fact:"факт", plan:"план", per_dev: false, num_dev:true, graph:"vsvve"},
-    //     {id:3, title:"Название", fact:"факт", plan:"план", per_dev: true, num_dev:true, graph:"wrvwrvwv"},
-    //     {id:4, title:"Название", fact:"факт", plan:"план", per_dev: true, num_dev:true, graph:"wrvwrv"},
-    //     {id:5, title:"Название", fact:"факт", plan:"план", per_dev: false, num_dev:false, graph:"wrvvrw"},
-    //     {id:6, title:"Название", fact:"факт", plan:"план", per_dev: false, num_dev:false, graph:"wrwrgr"}
-    // ]);
-
     $(".praon30").on("click",function() {
         $(".praon30").removeClass('current_choise');
         $(this).addClass('current_choise');

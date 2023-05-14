@@ -1300,23 +1300,27 @@ input.previous{
     /*background-color: white;*/
     background-color:#F8F9FA;
     color: white;
-    font-weight: bold;
+    /*font-weight: bold;*/
     border: white 0px;
     padding: 10px 16px;
 }
 
 .list-group-item.active .modal_button{
-    background-color: #0AD275;
+    /*background-color: #0AD275;*/
     color: white;
+    background-color: rgba(255, 81, 0, 0.8);
 }
 .list-group-item.active:hover .modal_button{
-    background-color: #0AD275;
+    /*background-color: #0AD275;*/
     color: white;
+    background-color: rgba(255, 81, 0, 0.8);
+
 }
 
 .list-group-item:hover .modal_button{
     /*background-color: #6e6cd9;;*/
-    color: #0AD275;
+    /*color: #0AD275;*/
+    color: rgba(255, 81, 0, 0.8);
     background-color: white;
 }
 
@@ -1352,10 +1356,22 @@ input[type=radio]:checked + label>img {
     display: none;
     height: 100%;
     width: inherit;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(255, 81, 0, 0.6);
     backdrop-filter: blur(4px);
     border-radius: 5px;
 }
 .modal_card .card:hover .overlay{
     display: block;
+}
+.modal_hor_card .card:hover .overlay{
+    display: block;
+}
+.modal_card .card:first-child .overlay{
+    display: block
+}
+.modal_hor_card > .col-md-2:first-child .overlay{
+    display: block;
+}
+.modal_card > .card:first-child{
+    transform: scale(1.05);
 }

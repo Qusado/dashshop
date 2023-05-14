@@ -9,20 +9,20 @@ export const KPi_card = ({ form, setForm, kpi_active, setKPI_active, current_car
 
     const CardHandler = () =>{
         Number_card = Number(current_card)+1;
-        document.getElementById('title').value = current_kpi_panel[current_card].title;
-        document.getElementById('fact').value = current_kpi_panel[current_card].fact;
-        document.getElementById('plan').value = current_kpi_panel[current_card].plan;
-        document.getElementById('graph').value = current_kpi_panel[current_card].graph;
-        if(current_kpi_panel[current_card].per_dev === true){
-            document.getElementById('per_dev').checked = true;
-        }else {
-            document.getElementById('per_dev').checked = false;
-        }
-        if(current_kpi_panel[current_card].num_dev === true){
-            document.getElementById('num_dev').checked = true;
-        }else{
-            document.getElementById('num_dev').checked = false;
-        }
+        // document.getElementById('title').value = current_kpi_panel[current_card].title;
+        // document.getElementById('fact').value = current_kpi_panel[current_card].fact;
+        // document.getElementById('plan').value = current_kpi_panel[current_card].plan;
+        // document.getElementById('graph').value = current_kpi_panel[current_card].graph;
+        // if(current_kpi_panel[current_card].per_dev === true){
+        //     document.getElementById('per_dev').checked = true;
+        // }else {
+        //     document.getElementById('per_dev').checked = false;
+        // }
+        // if(current_kpi_panel[current_card].num_dev === true){
+        //     document.getElementById('num_dev').checked = true;
+        // }else{
+        //     document.getElementById('num_dev').checked = false;
+        // }
         document.getElementById('about_card').textContent = "Показатель "+Number_card;
     }
 
@@ -35,26 +35,26 @@ export const KPi_card = ({ form, setForm, kpi_active, setKPI_active, current_car
 
     }
     const SaveHandler = event => {
-        current_kpi_panel[current_card].title = document.getElementById('title').value;
-        current_kpi_panel[current_card].fact = document.getElementById('fact').value;
-        current_kpi_panel[current_card].plan = document.getElementById('plan').value;
-        if(document.getElementById('per_dev').checked === true)
-        {
-          current_kpi_panel[current_card].per_dev = true;
-        }
-        else {
-          current_kpi_panel[current_card].per_dev = false;
-        }
-        if(document.getElementById('num_dev').checked === true)
-        {
-            current_kpi_panel[current_card].num_dev = true;
-        }
-        else{
-            current_kpi_panel[current_card].num_dev = false;
-        }
-        current_kpi_panel[current_card].graph = document.getElementById('graph').value;
-        current_kpi_panel[current_card].id = true;
-        clearAfterSave();
+        // current_kpi_panel[current_card].title = document.getElementById('title').value;
+        // current_kpi_panel[current_card].fact = document.getElementById('fact').value;
+        // current_kpi_panel[current_card].plan = document.getElementById('plan').value;
+        // if(document.getElementById('per_dev').checked === true)
+        // {
+        //   current_kpi_panel[current_card].per_dev = true;
+        // }
+        // else {
+        //   current_kpi_panel[current_card].per_dev = false;
+        // }
+        // if(document.getElementById('num_dev').checked === true)
+        // {
+        //     current_kpi_panel[current_card].num_dev = true;
+        // }
+        // else{
+        //     current_kpi_panel[current_card].num_dev = false;
+        // }
+        // current_kpi_panel[current_card].graph = document.getElementById('graph').value;
+        // current_kpi_panel[current_card].id = true;
+        // clearAfterSave();
         setKPI_active(false);
     }
 
@@ -75,48 +75,38 @@ export const KPi_card = ({ form, setForm, kpi_active, setKPI_active, current_car
                                            id="title"
                                            name="input_group"
                                            data-cardi-id=""
-                                           className="form-control form-control" placeholder="Название показателя"/>
+                                           className="form-control form-control" placeholder="Название показателя в отчете"/>
                                 </div>
                             </div>
                             <hr/>
                             <div className="row mb-4">
                                 <div className="col-12">
-                                    <input type="text"
-                                           id="fact"
-                                           name="input_group"
-                                           className="form-control form-control-lg" placeholder="Факт"/>
-                                </div>
-                            </div>
-                            <div className="row justify-content-center mb-3">
-                                <div className="col-8">
-                                    <input type="text"
-                                           name="input_group"
-                                           id="plan"
-                                           className="form-control form-control" placeholder="План"/>
-                                </div>
-                            </div>
-                            <div className="row justify-content-center mb-3">
-                                <div className="form text-center">
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="per_dev" />
-                                        <label className="form-check-label" htmlFor="per_dev">Процентное отклонение</label>
-                                    </div>/
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input"  type="checkbox" id="num_dev"/>
-                                        <label className="form-check-label" htmlFor="num_dev">Цифровое отклонение</label>
+                                    <div className="form-group text-white">
+                                        <label htmlFor="exampleFormControlTextarea1">Бизнес-условие</label>
+                                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="row justify-content-center">
-                                <div className="col-8">
-                                    <input type="text"
-                                           name="input_group"
-                                           id="graph"
-                                           className="form-control form-control" placeholder="График"/>
+                            <div className="row justify-content-center mb-3">
+                                <div className="col-12">
+                                    <div className="form-group text-white">
+                                        <label htmlFor="exampleFormControlTextarea1">Техническое условие</label>
+                                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                    </div>
                                 </div>
                             </div>
-
+                            <div className="row justify-content-center mb-1">
+                                <div className="form text-center text-white">
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="per_dev" />
+                                        <label className="form-check-label text-white" htmlFor="per_dev">Процентное отклонение</label>
+                                    </div>/
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input"  type="checkbox" id="num_dev"/>
+                                        <label className="form-check-label text-white" htmlFor="num_dev">Цифровое отклонение</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
             </div>

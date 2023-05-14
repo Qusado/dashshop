@@ -14,12 +14,12 @@ export const ViewLayoutMenu =({current_menu})=> {
     const {request, loading} = useHttp()
     return(
         <div>
-            {menu_id==6 && <Menu_01/>}
-            {menu_id==1 && <Menu_02/>}
-            {menu_id==2 && <Menu_03/>}
-            {menu_id==3 && <Menu_04/>}
-            {menu_id==4 && <Menu_05/>}
-            {menu_id==5 && <Menu_06/>}
+            {menu_id==2 && <Menu_01/>}
+            {menu_id==3 && <Menu_02/>}
+            {menu_id==4 && <Menu_03/>}
+            {menu_id==5 && <Menu_04/>}
+            {menu_id==6 && <Menu_05/>}
+            {menu_id==7 && <Menu_06/>}
         </div>
     );
 }
